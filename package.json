@@ -1,0 +1,23 @@
+{
+  "name": "Brindle-Colter",
+  "version": "1.0.0",
+  "description": "Brindle Colter is a child theme of GeneratePress. Brought to you by the fine folks at Brindle Digital Marketing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brindle Digital Marketing",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.1.0",
+    "node-sass": "^7.0.1"
+  },
+  "dependencies": {
+    "grunt": "^1.5.3",
+    "node": "^18.4.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "main.min.css",
+	"sources": [
+		"scss/main.scss",
+		"scss/common/_global.scss",
+		"scss/wp-admin/_global.scss"
+	],
+	"names": [],
+	"mappings": "AEIC,AAGG,IAHC,AAAA,SAAS,CAGV,WAAW,AAAC,CACR,OAAO,CAAE,KAAK,CACd,MAAM,CAAE,MAAM,CACd,SAAS,CAAE,IAAI,CACf,KAAK,CAAE,IAAI,CACd"
+}

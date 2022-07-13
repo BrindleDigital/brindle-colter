@@ -1,0 +1,14 @@
+/**
+ * Global styles for the backend only.
+ */
+
+ body.wp-admin {
+
+    // Adjust the dimensions of the logo displayed in the dashboard sidebar.
+    .wlcms-logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 7rem;
+        width: 100%;
+    }
+ }

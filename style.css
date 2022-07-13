@@ -1,0 +1,21 @@
+/*
+Theme Name:        Brindle Colter
+Theme URI:         https://brindledigital.com/
+Description:       Brindle Colter is a child theme of GeneratePress. Brought to you by the fine folks at Brindle Digital Marketing.
+Author:            Brindle Digital
+Author URI:        https://brindledigital.com/
+Template:          generatepress
+Version:           1.0.0
+Text Domain:       brindle-colter
+Date:              2022-06-26
+Requires at least: 5.9
+Tested up to:      6.0
+Requires PHP:      7.4
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*
+    Do not add styles below. Our style sheets are enqueued separately.
+	Actual CSS can be found in /assets/css folder.
+*/
