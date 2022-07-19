@@ -7,7 +7,7 @@
  *   This call is at the end of this file.
  */
 
-namespace BCT; // Brindle Colter Theme
+namespace CT; // Child Theme
 
 class Setup {
     // Path to theme folder
@@ -67,7 +67,7 @@ class Setup {
     public function enqueue_wp_styles()
     {
         wp_enqueue_style(
-            'bct-main-css',  // Preface always with 'bct-' to avoid name collisions.
+            'ct-main-css',  // Preface always with 'ct-' to avoid name collisions.
             self::$styles_uri . '/main.min.css',
             [],
             self::$theme_version
@@ -80,7 +80,7 @@ class Setup {
     public function enqueue_wp_scripts()
     {
         wp_enqueue_script(
-            'bct-main-js',
+            'ct-main-js',
             self::$scripts_uri . '/main.min.js',
             ['jquery'],
             self::$theme_version,

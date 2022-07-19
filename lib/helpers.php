@@ -3,7 +3,7 @@
  * Helper functions and services.
  */
 
-namespace BCT; // Brindle Colter Theme
+namespace CT; // Child Theme
 
 /**
  * Internal use: Use for debugging of data structures.
