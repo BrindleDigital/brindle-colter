@@ -22,6 +22,9 @@ class Setup {
     // URI to styles folder
     public static $styles_uri;
 
+    // URI to images folder
+    public static $images_uri;
+
     // Theme version
     public static $theme_version;
 
@@ -37,10 +40,11 @@ class Setup {
      */
     private function setup_global_constants()
     {
-        self::$theme_dir = get_stylesheet_directory();
-        self::$theme_uri = get_stylesheet_directory_uri();
+        self::$theme_dir   = get_stylesheet_directory();
+        self::$theme_uri   = get_stylesheet_directory_uri();
         self::$scripts_uri = self::$theme_uri . '/assets/js';
-        self::$styles_uri = self::$theme_uri . '/assets/css';
+        self::$styles_uri  = self::$theme_uri . '/assets/css';
+        self::$images_uri  = self::$theme_uri . '/assets/images';
 
         // Child theme version (dynamically pulled from our theme header)
         $theme_data = get_file_data( self::$theme_dir . '/style.css', ['Version' => 'Version'], false );

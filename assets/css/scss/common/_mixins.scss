@@ -1,0 +1,16 @@
+/**
+ * Media Query Mixins
+ */
+
+// Mobile-first by default
+@mixin respond($break-size) {
+    @media (min-width: $break-size) { @content; }
+}
+
+@mixin respondMax($break-size) {
+    @media (max-width: $break-size) { @content; }
+}
+
+@mixin respondBetween($break-size-min, $break-size-max) {
+    @media (min-width: $break-size-min) and (max-width: $break-size-max) { @content; }
+}

@@ -32,3 +32,23 @@ function dump_log( $obj, $do_die = false ) {
       die('Dying here from data dump.');
     }
 }
+
+/**
+ * Returns an array of files within the given directory (and its subdirectories)
+ * that match the given regex.
+ *
+ * @param string $folder   Directory path to begin search
+ * @param string $pattern  Regex to match files against
+ */
+function recursive_file_search( $folder, $pattern ) {
+    $directory = new \RecursiveDirectoryIterator($folder);
+    $iterator  = new \RecursiveIteratorIterator($directory);
+    $files     = new \RegexIterator($iterator, $pattern, \RegexIterator::MATCH);
+    $paths     = [];
+
+    foreach( $files as $file ) {
+        $paths[] = $file->getPathName();
+    }
+
+    return $paths;
+}
