@@ -1,0 +1,388 @@
+{
+    "key": "group_62e6d3af4a879",
+    "title": "Child Theme: Primary Hero Block",
+    "fields": [
+        {
+            "key": "field_62e6d3af50b72",
+            "label": "Design",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50b61",
+            "label": "Content Layout",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50b6c",
+            "label": "Bottom Padding",
+            "name": "content_bottom_padding",
+            "type": "group",
+            "instructions": "Enter the distance you wish to raise the content from the bottom of the hero section. Enter a number representing a multiple of the body font size (REM).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62e6d3af57254",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 2,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "rem",
+                    "min": 0,
+                    "max": "",
+                    "step": "0.01"
+                },
+                {
+                    "key": "field_62e6d3af57262",
+                    "label": "Tablet",
+                    "name": "tablet",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 4,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "rem",
+                    "min": 0,
+                    "max": "",
+                    "step": "0.01"
+                },
+                {
+                    "key": "field_62e6d3af5726b",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "1.65",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "rem",
+                    "min": 0,
+                    "max": "",
+                    "step": "0.01"
+                }
+            ]
+        },
+        {
+            "key": "field_62e6d3af50b7c",
+            "label": "Image Layout",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50b84",
+            "label": "Image",
+            "name": "image_id",
+            "type": "image",
+            "instructions": "Select an image for the content area.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "ct-primary-hero-desktop",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_62e6d3af50b8e",
+            "label": "Side Layout",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50b95",
+            "label": "Text",
+            "name": "side_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "APARTMENTS IN FORT COLLINS, CO",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e6d3af50b9e",
+            "label": "Text Color",
+            "name": "side_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "rgb(0, 0, 0)",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62e6d3af50ba6",
+            "label": "Background Color",
+            "name": "side_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "rgb(234, 234, 234)",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62e6d3af50bb0",
+            "label": "Bottom Layout",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50bb7",
+            "label": "Background Color",
+            "name": "bottom_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "rgb(255, 255, 255)",
+            "enable_opacity": 1,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62e6d3af50bc1",
+            "label": "Pattern Layout",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62e6d3af50bc8",
+            "label": "Image",
+            "name": "pattern_image",
+            "type": "group",
+            "instructions": "Select an optional pattern or an image of your own.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_62e6d3af73729",
+                    "label": "Pattern",
+                    "name": "primary_hero_pattern_selection",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "Select One",
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/primary-hero\/patterns\/squares-transparent-light.png": "Squares Transparent Light",
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/primary-hero\/patterns\/squares-transparent-dark.png": "Squares Transparent Dark",
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/primary-hero\/patterns\/squares-transparent-medium.png": "Squares Transparent Medium"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_62e6d3af73733",
+                    "label": "Image",
+                    "name": "image_id",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        },
+        {
+            "key": "field_62e6d93c9e57c",
+            "label": "Opacity",
+            "name": "pattern_opacity",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "0.5",
+            "min": "",
+            "max": 1,
+            "step": "0.01",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/ct-primary-hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Hero block suitable for the home page.",
+    "show_in_rest": 0,
+    "modified": 1659297000
+}

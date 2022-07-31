@@ -52,3 +52,26 @@ function recursive_file_search( $folder, $pattern ) {
 
     return $paths;
 }
+
+/**
+ * Returns a string from a filename that is suitable as a label.
+ * For example: '/my/path/to/pretty-butterfly.jpg -> "Pretty Butterfly"
+ *
+ * @param string $filename   '/my/path/to/file.jpg'
+ * @return string
+ */
+function filename_to_label( $filename ) {
+    // Start with only the filename.
+    $filename = basename( $filename );
+
+    // Strip off any suffix.
+    $filename = pathinfo( $filename, PATHINFO_FILENAME );
+
+    // Remove all non-alpha characters.
+    $label = preg_replace( '/[^a-z]+/i', ' ', $filename );
+
+    // Capitalize each word.
+    $label = ucwords( $label );
+
+    return $label;
+}

@@ -10,7 +10,7 @@
 namespace CT; // Child Theme
 
 class Setup {
-    // Path to theme folder
+    // Directory path to theme folder
     public static $theme_dir;
 
     // URI to theme folder
@@ -21,6 +21,9 @@ class Setup {
 
     // URI to styles folder
     public static $styles_uri;
+
+    // Directory path to images folder
+    public static $images_dir;
 
     // URI to images folder
     public static $images_uri;
@@ -44,6 +47,7 @@ class Setup {
         self::$theme_uri   = get_stylesheet_directory_uri();
         self::$scripts_uri = self::$theme_uri . '/assets/js';
         self::$styles_uri  = self::$theme_uri . '/assets/css';
+        self::$images_dir  = self::$theme_dir . '/assets/images';
         self::$images_uri  = self::$theme_uri . '/assets/images';
 
         // Child theme version (dynamically pulled from our theme header)

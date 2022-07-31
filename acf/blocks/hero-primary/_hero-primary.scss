@@ -1,20 +1,25 @@
 /**
+ * ACF Field Group: Child Theme: Primary Hero Block
  *
+ * Description
+ *   Styles a Gutenberg Hero block intended for the home page.
  */
-.ct-hero-primary-block {
+
+.ct-primary-hero {
     font-size: 1rem;
 
     .ct-container {
         background-color: transparent;
         position: relative;
         width: 100%;
+        height: 27rem;
 
         @include respond(768px) {
-            height: 985px;
+            height: 70.357rem;
         }
     }
 
-    .ct-top-container {
+    .ct-side-container {
         display: none;
 
         @include respond(768px) {
@@ -26,41 +31,39 @@
             z-index: 1;
             top: 0;
             right: 0;
-            bottom: 210px;
+            bottom: 15rem;
             left: 0;
             background-color: #eaeaea;
         }
     }
 
-    .ct-top-text {
+    .ct-side-text {
         display: none;
 
         @include respond(768px) {
             display: block;
             writing-mode: vertical-rl;
-            text-transform: uppercase;
-            line-height: 80px;
-            font-size: 0.85em;
-            letter-spacing: 0.1em;
+            line-height: 5.714rem;
+            font-size: 0.857em;
+            font-weight: 700;
+            letter-spacing: 0.2em;
             padding-bottom: 162px;
         }
     }
 
     .ct-image-container {
+        display: block;
+        height: 21.429rem;
+
         @include respond(768px) {
             position: absolute;
             z-index: 2;
             top: 0;
-            right: 80px;
-            bottom: 130px;
+            right: 5.714rem;
+            bottom: 9.286rem;
             left: 0;
-            background-color: transparent;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            background-size: cover;
         }
     }
 
@@ -73,12 +76,83 @@
             z-index: 3;
             right: 0;
             bottom: 0;
-            width: 600px;
-            height: 210px;
-            opacity: 0.5;
+            width: 42.857rem;
+            height: 15rem;
             background-color: transparent;
             background-repeat: repeat;
             background-position: left center;
         }
+    }
+
+    .ct-arrow-container {
+        display: none;
+
+        @include respond(768px) {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: flex-end;
+            position: absolute;
+            z-index: 4;
+            right: 0;
+            bottom: 2.714rem;
+            width: 5.714rem;
+            height: 15rem;
+        }
+    }
+
+    .ct-arrow {
+        display: block;
+        width: 0.857rem;
+        height: 3.643rem;
+    }
+
+    .ct-content-container {
+        display: flex;
+        flex-flow: row nowrap;
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        @include respond(768px) {
+        }
+    }
+
+    .ct-content {
+        display: flex;
+        position: relative;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 85.714rem;
+        padding-left: 30px; // Lock page side padding with px's.
+        padding-right: 30px;
+
+        @include respond(768px) {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    .ct-heading {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end; // ACF Field (Vert alignment)
+        justify-content: flex-start; // ACF Field (Horiz alignment)
+        width: 100%;
+
+        > *:first-child {
+            margin-top: 0;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h1:only-child {
+        margin: 0;
     }
 }
