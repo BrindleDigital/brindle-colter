@@ -2,3 +2,27 @@
  * Global styles
  */
 
+ /*
+ * Major Breakpoints
+ * These values are used for @media queries so keep them as 'em'.
+ * They should match those defined in our /lib/helpers.php file.
+ */
+$phone-landscape: 30em;  // 480px  // 480px @ browser default 16px font-size
+$phablet:         36em;  // 576px
+$tablet-small:    40em;  // 640px
+$tablet:          48em;  // 768px
+$laptop:          55em;  // 880px
+$desktop:         64em;  // 1024px
+$desktop-large:   75em;  // 1200px
+$desktop-xlarge:  90em;  // 1440px
+
+/*
+ * Set site-wide page and content widths
+ */
+$max-content-width: 102.86rem; // 1440px @ 14px font-size
+
+/*
+ * Page content padding and margins
+ */
+$content-padding-horizontal-mobile: 40px;
+$content-padding-horizontal-desktop: 80px;

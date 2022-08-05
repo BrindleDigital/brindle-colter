@@ -25,7 +25,7 @@ Class ACFSetup
         require_once Setup::$theme_dir . '/acf/helpers.php';
 
         // All ACF block files. Load them dynamically so we don't have to manually list them.
-        $block_files = recursive_file_search( Setup::$theme_dir . '/acf/blocks', '/.+\.php$/i' );
+        $block_files = Helpers::recursive_file_search( Setup::$theme_dir . '/acf/blocks', '/.+\.php$/i' );
 
         foreach ( $block_files as $file ) {
             require_once $file;

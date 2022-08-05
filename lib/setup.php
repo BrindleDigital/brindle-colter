@@ -31,7 +31,9 @@ class Setup {
     // Theme version
     public static $theme_version;
 
-    // In case we want this later.
+    /**
+     * Kick us off
+     */
     function __construct()
     {
         $this->setup_global_constants();

@@ -23,7 +23,7 @@ Class ACFHelpers
         $choices = [];
 
         // Get the image files in the given directory.
-        $file_paths = recursive_file_search( $dir_path, $regex );
+        $file_paths = Helpers::recursive_file_search( $dir_path, $regex );
 
         if ( empty( $file_paths ) ) {
             return $fields;
@@ -35,7 +35,7 @@ Class ACFHelpers
             $filename = basename( $file_path );
             $url = "{$url_path}/{$filename}";
 
-            $choices[$url] = filename_to_label( $filename );
+            $choices[$url] = Helpers::filename_to_label( $filename );
         }
 
         $fields['choices'] = $choices;

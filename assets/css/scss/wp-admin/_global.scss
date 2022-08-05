@@ -11,4 +11,10 @@
         max-width: 7rem;
         width: 100%;
     }
+
+    // Since we modify the page h1's to be so large, retain a smaller size
+    // for the post title in the editor.
+    .wp-block.wp-block-post-title {
+        font-size: 3rem;
+    }
  }

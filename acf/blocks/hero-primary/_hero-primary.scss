@@ -14,7 +14,7 @@
         width: 100%;
         height: 27rem;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             height: 70.357rem;
         }
     }
@@ -22,7 +22,7 @@
     .ct-side-container {
         display: none;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             display: flex;
             flex-flow: row nowrap;
             align-items: flex-end;
@@ -40,7 +40,7 @@
     .ct-side-text {
         display: none;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             display: block;
             writing-mode: vertical-rl;
             line-height: 5.714rem;
@@ -55,7 +55,7 @@
         display: block;
         height: 21.429rem;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             position: absolute;
             z-index: 2;
             top: 0;
@@ -70,7 +70,7 @@
     .ct-pattern-container {
         display: none;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             display: block;
             position: absolute;
             z-index: 3;
@@ -87,7 +87,7 @@
     .ct-arrow-container {
         display: none;
 
-        @include respond(768px) {
+        @include respond($tablet) {
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
@@ -116,9 +116,6 @@
         right: 0;
         bottom: 0;
         left: 0;
-
-        @include respond(768px) {
-        }
     }
 
     .ct-content {
@@ -127,21 +124,21 @@
         height: 100%;
         margin: 0 auto;
         width: 100%;
-        max-width: 85.714rem;
-        padding-left: 30px; // Lock page side padding with px's.
-        padding-right: 30px;
+        max-width: $max-content-width;
+        padding-left: $content-padding-horizontal-mobile; // Lock page side padding with px's.
+        padding-right: $content-padding-horizontal-mobile;
 
-        @include respond(768px) {
-            padding-left: 40px;
-            padding-right: 40px;
+        @include respond($tablet) {
+            padding-left: $content-padding-horizontal-desktop;
+            padding-right: $content-padding-horizontal-desktop;
         }
     }
 
     .ct-heading {
         display: flex;
         flex-flow: row nowrap;
-        align-items: flex-end; // ACF Field (Vert alignment)
-        justify-content: flex-start; // ACF Field (Horiz alignment)
+        align-items: flex-end;
+        justify-content: flex-start;
         width: 100%;
 
         > *:first-child {

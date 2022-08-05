@@ -1,26 +1,26 @@
 <?php
 /**
- * ACF Field Group: Child Theme: Primary Hero Block
+ * ACF Field Group: Child Theme: Secondary Hero Block
  *
  * Description
- *   Creates a Gutenberg Hero block intended for the home page.
+ *   Creates a Gutenberg Hero block intended for internal pages.
  *
  * Use
  *   This Singleton class only needs to be initializeed once by calling:
  *
- *      PrimaryHeroBlock::init();
+ *      SecondaryHeroBlock::init();
  *
  *   This call is at the end of this file.
  */
 
 namespace CT;
 
-class PrimaryHeroBlock
+class SecondaryHeroBlock
 {
     /**
      * Block name
      */
-    private static $name = 'primary-hero';
+    private static $name = 'secondary-hero';
 
     /**
      * Unique name we'll use for classnames, ids, etc.. Initialized in __construct().
@@ -71,21 +71,21 @@ class PrimaryHeroBlock
         self::$unique_name = 'ct-' . self::$name;
 
         // Base url to our images folder.
-        self::$images_url = Setup::$images_uri . '/blocks/primary-hero';
+        self::$images_url = Setup::$images_uri . '/blocks/secondary-hero';
 
         // Base directory path to our images folder.
-        self::$images_dir = Setup::$images_dir. '/blocks/primary-hero';
+        self::$images_dir = Setup::$images_dir. '/blocks/secondary-hero';
 
         // Create additional image sizes unique to our block for better responsive image support.
-        add_image_size(self::$unique_name . '-mobile', 900, 600, true);  // Crop images to be 3:2 ratio.
-        add_image_size(self::$unique_name . '-tablet', 1200, 800, true);
-        add_image_size(self::$unique_name . '-desktop', 5760, 3840, true);
+        add_image_size(self::$unique_name . '-mobile', 900, 426.25, true);
+        add_image_size(self::$unique_name . '-tablet', 1200, 568.34, true);
+        add_image_size(self::$unique_name . '-desktop', 2400, 1136.67, true);
 
         /**
          * Dynamically populate the ACF pattern select menu.
          * See https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
          */
-        add_filter( 'acf/load_field/name=primary_hero_pattern_selection', [$this, 'get_pattern_menu'] );
+        add_filter( 'acf/load_field/name=secondary_hero_pattern_selection', [$this, 'get_pattern_menu'] );
     }
 
     /**
@@ -100,12 +100,12 @@ class PrimaryHeroBlock
             if ( function_exists( 'acf_register_block_type' )) {
                 acf_register_block_type([
                     'name'              => self::$unique_name,
-                    'title'             => 'Primary hero',
-                    'description'       => 'Hero section suitable for your home page.',
+                    'title'             => 'Secondary hero',
+                    'description'       => 'Hero section suitable for your internal pages.',
                     'render_callback'   => [$this, 'display_block'],
                     'category'          => 'child-theme',
                     'icon'              => "", // TODO
-                    'keywords'          => ['child theme', 'colter', 'hero', 'image'],
+                    'keywords'          => ['child theme', 'colter', 'hero', 'secondary', 'image'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',
                     'supports'          => [
@@ -148,6 +148,36 @@ class PrimaryHeroBlock
             ? get_field( 'content_bottom_padding_desktop' ) : 0;
 
         /*
+         * Background layout
+         */
+        $container_background_color = is_string( get_field( 'container_background_color' ) )
+            ? get_field( 'container_background_color' )
+            : 'var(--base)';  // From GeneratePress color palette.
+
+        /*
+         * Pattern layout
+         */
+        $pattern_image_url = is_numeric( get_field( 'pattern_image_image_id' ) )
+            ? wp_get_attachment_image_url( get_field( 'pattern_image_image_id' ), 'full' )
+            : '';
+
+        if ( empty( $pattern_image_url ) &&
+            is_string( get_field( 'pattern_image_secondary_hero_pattern_selection' ) ) &&
+            get_field( 'pattern_image_secondary_hero_pattern_selection' ) !== 'none' ) {
+
+            $pattern_image_url = get_field( 'pattern_image_secondary_hero_pattern_selection' );
+        }
+
+        $pattern_opacity = is_numeric( get_field( 'pattern_opacity' ) ) ? get_field( 'pattern_opacity' ) : 0.5;
+
+        /*
+         * Divider layout
+         */
+        $divider_background_color = is_string( get_field( 'divider_background_color' ) )
+            ? get_field( 'divider_background_color' )
+            : 'var(--contrast-5)';    // From GeneratePress color palette.
+
+        /*
          * Image layout
          */
         $image_url = self::$images_url . '/photos/placeholder.jpg'; // Default
@@ -163,71 +193,12 @@ class PrimaryHeroBlock
         $image_desktop_url = is_numeric( get_field( 'image_id' ) )
             ? wp_get_attachment_image_url( get_field( 'image_id' ), self::$unique_name . '-desktop' )
             : $image_url;
-
-        /*
-         * Side layout
-         */
-        $side_text = is_string( get_field( 'side_text' ) ) ? get_field( 'side_text' ) : '';
-
-        $side_color = is_string( get_field( 'side_text_color' ) )
-            ? get_field( 'side_text_color' )
-            : 'var(--contrast)'; // From GeneratePress color palette.
-
-        $side_background_color = is_string( get_field( 'side_background_color' ) )
-            ? get_field( 'side_background_color' )
-            : 'var(--contrast-4)';    // From GeneratePress color palette.
-
-        /*
-         * Bottom layout
-         */
-        $bottom_background_color = is_string( get_field( 'bottom_background_color' ) )
-            ? get_field( 'bottom_background_color' )
-            : 'var(--base)';  // From GeneratePress color palette.
-
-        /*
-         * Pattern layout
-         */
-        $pattern_image_url = is_numeric( get_field( 'pattern_image_image_id' ) )
-            ? wp_get_attachment_image_url( get_field( 'pattern_image_image_id' ), 'full' )
-            : '';
-
-        if ( empty( $pattern_image_url ) &&
-             is_string( get_field( 'pattern_image_primary_hero_pattern_selection' ) ) &&
-             get_field( 'pattern_image_primary_hero_pattern_selection' ) !== 'none' ) {
-
-            $pattern_image_url = get_field( 'pattern_image_primary_hero_pattern_selection' );
-        }
-
-        $pattern_opacity = is_numeric( get_field( 'pattern_opacity' ) ) ? get_field( 'pattern_opacity' ) : 0.5;
     ?>
         <style>
-            /* Styles for our Primary Hero block below */
+            /* Styles for our Hero block below */
 
             #<?php echo $id; ?> .ct-container {
-                background-color: <?php echo $bottom_background_color; ?>;
-            }
-
-            #<?php echo $id; ?> .ct-side-container {
-                background-color: <?php echo $side_background_color; ?>;
-                color: <?php echo $side_color; ?>;
-            }
-
-            #<?php echo $id; ?> .ct-image-container {
-                background: url(<?php echo $image_mobile_url; ?>) center/cover;
-            }
-
-            @media (min-width: <?php echo Helpers::$breakpoint['tablet']; ?>) {
-                #<?php echo $id; ?> .ct-image-container {
-                    background: linear-gradient(180deg, rgba(234, 234, 234, 0.6) 17.19%, rgba(255, 255, 255, 0.6) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.48) 100%), url(<?php echo $image_tablet_url; ?>) center/cover;
-                    background-blend-mode: soft-light, overlay, normal;
-                }
-            }
-
-            @media (min-width: <?php echo Helpers::$breakpoint['desktop']; ?>) {
-                #<?php echo $id; ?> .ct-image-container {
-                    background: linear-gradient(180deg, rgba(234, 234, 234, 0.6) 17.19%, rgba(255, 255, 255, 0.6) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.48) 100%), url(<?php echo $image_desktop_url; ?>) center/cover;
-                    background-blend-mode: soft-light, overlay, normal;
-                }
+                background-color: <?php echo $container_background_color; ?>;
             }
 
             <?php if ( ! empty( $pattern_image_url ) ) : ?>
@@ -236,6 +207,26 @@ class PrimaryHeroBlock
                     opacity: <?php echo $pattern_opacity; ?>;
                 }
             <?php endif; ?>
+
+            #<?php echo $id; ?> .ct-divider-container {
+                background-color: <?php echo $divider_background_color; ?>;
+            }
+
+            #<?php echo $id; ?> .ct-image-container {
+                background: url(<?php echo $image_mobile_url; ?>) center/cover;
+            }
+
+            @media (min-width: <?php echo Helpers::$breakpoint['tablet']; ?>) {
+                #<?php echo $id; ?> .ct-image-container {
+                    background: url(<?php echo $image_tablet_url; ?>) center/cover;
+                }
+            }
+
+            @media (min-width: <?php echo Helpers::$breakpoint['desktop']; ?>) {
+                #<?php echo $id; ?> .ct-image-container {
+                    background: url(<?php echo $image_desktop_url; ?>) center/cover;
+                }
+            }
 
             #<?php echo $id; ?> .ct-heading {
                 padding-bottom: <?php echo $content_bottom_padding_mobile; ?>rem;
@@ -260,17 +251,12 @@ class PrimaryHeroBlock
 
             <div class="ct-container">
 
-                <div class="ct-side-container">
-                    <div class="ct-side-text"><?php echo $side_text; ?></div>
-                </div>
-
-                <div class="ct-image-container"></div>
-
                 <div class="ct-pattern-container"></div>
 
-                <div class="ct-arrow-container"><img
-                    class="ct-arrow"
-                    src="<?php echo self::$images_url . '/graphics/arrow.png'; ?>;" /></div>
+                <div class="ct-background-container">
+                    <div class="ct-divider-container"></div>
+                    <div class="ct-image-container"></div>
+                </div>
 
                 <div class="ct-content-container">
                     <div class="ct-content">
@@ -300,7 +286,7 @@ class PrimaryHeroBlock
                                     [
                                         'core/heading', [
                                             'level' => 1,
-                                            'content' => 'Welcome to<br>The Colter',
+                                            'content' => 'Heading',
                                         ]
                                     ]
                                 ];
@@ -342,4 +328,4 @@ class PrimaryHeroBlock
     }
 }
 
-PrimaryHeroBlock::init();
+SecondaryHeroBlock::init();
