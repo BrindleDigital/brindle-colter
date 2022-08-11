@@ -1,0 +1,24 @@
+{
+    "key": "group_62f50819b0546",
+    "title": "Child Theme: Testimonial Block",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/ct-testimonial-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Block suitable for introducing page content.",
+    "show_in_rest": 0,
+    "modified": 1660225601
+}

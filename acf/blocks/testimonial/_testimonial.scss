@@ -1,0 +1,92 @@
+/**
+ * ACF Field Group: Child Theme: Testimonial Block
+ *
+ * Description
+ *   Styles a Gutenberg Testimonial block.
+ */
+%blockquote {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 5.5rem;
+    margin: 0;
+
+    p {
+        font-size: 1.286rem;  // 18px @ 14px body font-size
+        font-style: normal;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0 0 1.5rem;
+        color: var(--contrast-2); // Color defined in GeneratePress parent theme.
+    }
+
+    cite {
+        font-size: 0.857rem;  // 12px @ 14px body font-size
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--contrast); // Color defined in GeneratePress parent theme.
+    }
+}
+
+.ct-testimonial-block {
+    font-size: 1rem;
+
+    .ct-wrapper {
+        width: 100%;
+        padding-left: $content-padding-horizontal-mobile; // Lock page side padding with px's.
+        padding-right: $content-padding-horizontal-mobile;
+
+        @include respond($tablet) {
+            padding-left: $content-padding-horizontal-desktop;
+            padding-right: $content-padding-horizontal-desktop;
+        }
+    }
+
+    .ct-container {
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        max-width: $max-content-width-xnarrow;
+        border: 2px solid var(--contrast); // Color defined in GeneratePress parent theme.
+    }
+
+    .ct-icon {
+        position: absolute;
+        top: -2.857rem;
+        width: 5.714rem;
+        height: 5.714rem;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--accent-2); // Color defined in GeneratePress parent theme.
+        z-index: 1;
+        border-radius: 50%;
+
+        img {
+            display: block;
+        }
+    }
+
+    blockquote {
+        @extend %blockquote;
+    }
+
+    // We need this for the WP admin backend, the Gutenberg editor. Otherwise,
+    // GeneratePress styles override our blockquote.
+    .wp-admin .editor-styles-wrapper & .wp-block-quote:not(.is-large):not(.is-style-large),
+    .wp-admin .editor-styles-wrapper & .block-editor-block-list__block blockquote {
+        @extend %blockquote;
+    }
+}

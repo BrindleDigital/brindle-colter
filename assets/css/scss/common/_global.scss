@@ -19,9 +19,10 @@ $desktop-xlarge:  90em;  // 1440px
 /*
  * Set site-wide page and content widths
  */
-$max-content-width-narrow: 75.714rem;  // 1060px @ 14px font-size
-$max-content-width-normal: 91.429rem;  // 1280px @ 14px font-size
-$max-content-width-wide:   102.857rem; // 1440px @ 14px font-size
+$max-content-width-xnarrow: 59.286rem;  // 830px @ 14px font-size
+$max-content-width-narrow:  75.714rem;  // 1060px @ 14px font-size
+$max-content-width-normal:  91.429rem;  // 1280px @ 14px font-size
+$max-content-width-wide:    102.857rem; // 1440px @ 14px font-size
 
 /*
  * Page content padding and margins
