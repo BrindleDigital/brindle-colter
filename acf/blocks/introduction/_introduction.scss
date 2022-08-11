@@ -1,0 +1,70 @@
+/**
+ * ACF Field Group: Child Theme: Introduction Block
+ *
+ * Description
+ *   Styles a Gutenberg Introduction block.
+ */
+
+.ct-introduction-block {
+    font-size: 1rem;
+
+    .ct-wrapper {
+        width: 100%;
+        padding-left: $content-padding-horizontal-mobile; // Lock page side padding with px's.
+        padding-right: $content-padding-horizontal-mobile;
+
+        @include respond($tablet) {
+            padding-left: $content-padding-horizontal-desktop;
+            padding-right: $content-padding-horizontal-desktop;
+        }
+    }
+
+    .ct-container {
+        position: relative;
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: 1fr;
+        gap: 2.143rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: $max-content-width-narrow;
+
+        @include respond($tablet) {
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+        }
+    }
+
+    // .ct-heading {
+    //     width: 100%;
+    // }
+
+    h1, h2, h3, h4, h5, h6 {
+        &:only-child {
+            margin: 0;
+            position: relative;
+        }
+
+        @include respond($tablet) {
+            &:before {
+                content: "";
+                display: block;
+                width: 100000px;
+                height: 2px;
+                background: var(--contrast); // Color defined in GeneratePress parent theme.
+                right: 103%;
+                margin-right: 12px;
+                top: 0.65em;  // Reasonable default.
+                position: absolute;
+            }
+        }
+    }
+
+    .ct-content {
+        @include respond($tablet) {
+            > p:first-child {
+                margin-top: 0.65em;  // Just to make the top vertically aligned with the heading.
+            }
+        }
+    }
+}

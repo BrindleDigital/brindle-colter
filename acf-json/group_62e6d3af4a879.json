@@ -371,7 +371,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/ct-primary-hero"
+                "value": "acf\/ct-primary-hero-block"
             }
         ]
     ],

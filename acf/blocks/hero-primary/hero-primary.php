@@ -20,7 +20,7 @@ class PrimaryHeroBlock
     /**
      * Block name
      */
-    private static $name = 'primary-hero';
+    private static $name = 'primary-hero-block';
 
     /**
      * Unique name we'll use for classnames, ids, etc.. Initialized in __construct().
