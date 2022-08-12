@@ -1,26 +1,26 @@
 <?php
 /**
- * ACF Field Group: Child Theme: Testimonial Block
+ * ACF Field Group: Child Theme: Heading Arrow Block
  *
  * Description
- *   Creates a testimonial Gutenberg block.
+ *   Creates a Gutenberg block with a heading and arrow that links to another page.
  *
  * Use
  *   This Singleton class only needs to be initializeed once by calling:
  *
- *      TestimonialBlock::init();
+ *      HeadingArrowBlock::init();
  *
  *   This call is at the end of this file.
  */
 
 namespace CT;
 
-class TestimonialBlock
+class HeadingArrowBlock
 {
     /**
      * Block name
      */
-    private static $name = 'testimonial-block';
+    private static $name = 'heading-arrow-block';
 
     /**
      * Unique name we'll use for classnames, ids, etc.. Initialized in __construct().
@@ -66,12 +66,12 @@ class TestimonialBlock
             if ( function_exists( 'acf_register_block_type' )) {
                 acf_register_block_type([
                     'name'              => self::$unique_name,
-                    'title'             => 'Testimonial',
-                    'description'       => 'Create a stylized testimonial.',
+                    'title'             => 'Heading with Arrow',
+                    'description'       => 'Create a heading with a linked arrow',
                     'render_callback'   => [$this, 'display_block'],
                     'category'          => 'child-theme',
                     'icon'              => "", // TODO
-                    'keywords'          => ['child theme', 'colter', 'testimonial'],
+                    'keywords'          => ['child theme', 'colter', 'heading', 'arrow', 'link'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',
                     'supports'          => [
@@ -100,17 +100,33 @@ class TestimonialBlock
         $id     = $block['id'] ?? '';
         $id     = $anchor ? $anchor : ( $id ? $id : wp_unique_id(self::$unique_name) );
         $class  = $block['className'] ?? '';
+
+        $link            = is_array( get_field( 'link' ) ) ? get_field( 'link' ) : [];
+        $arrow_pad_width = is_numeric( get_field( 'arrow_pad_width' ) ) ? get_field( 'arrow_pad_width' ) : '5.714';
+        $bottom_padding  = is_numeric( get_field( 'bottom_padding' ) ) ? get_field( 'bottom_padding' ) : '0';
+
+        // Break up link parts.
+        $link_title  = $link['title'] ?? '';
+        $link_url    = $link['url'] ?? '';
+        $link_target = $link['target'] ?? '_self';
     ?>
-        <section
+        <style>
+            #<?php echo $id; ?> .ct-icon {
+                width: <?php echo $arrow_pad_width; ?>rem;
+                height: <?php echo $arrow_pad_width; ?>rem;
+            }
+
+            #<?php echo $id; ?> .ct-content {
+                padding-bottom: <?php echo $bottom_padding; ?>rem;
+            }
+        </style>
+
+       <section
             id="<?php echo $id; ?>"
             class="ct-acf-block <?php echo self::$unique_name . ' ' . $class; ?>">
 
             <div class="ct-wrapper">
                 <div class="ct-container">
-                    <div class="ct-icon">
-                        <img src="<?php echo Setup::$images_uri . '/blocks/testimonial/quote.png'; ?>"
-                            alt="" role="presentation">
-                    </div>
 
                     <div class="ct-content">
                         <?php
@@ -130,22 +146,31 @@ class TestimonialBlock
                             *   Definitive: https://github.com/WordPress/gutenberg/tree/master/packages/block-editor/src/components/inner-blocks
                             *   GB Blocks: https://github.com/WordPress/gutenberg (See /gutenberg/packages/block-library/src)
                             */
-
-                            // Our block may only contain a Gutenberg heading block.
-                            $allowed_inner_blocks = ['core/quote'];
-
                             $template = [
                                 [
-                                    'core/quote'
+                                    'core/heading', [
+                                        'level' => 3,
+                                        'content' => 'Heading',
+                                    ]
                                 ]
                             ];
                         ?>
 
                         <InnerBlocks
-                            allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_inner_blocks)) ?>"
                             template="<?php echo esc_attr(wp_json_encode($template)) ?>"
-                            templateLock="all" />
+                            templateLock="false" />
                     </div>
+
+                    <?php if ( ! empty( $link_url ) && ! empty( $link_title ) ) : ?>
+                        <a class="ct-icon"
+                            href="<?php echo $link_url; ?>"
+                            target="<?php echo $link_target; ?>"
+                            aria-label="<?php echo $link_title; ?>">
+
+                            <span class="ct-image"></span>
+                        </a>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </section>
@@ -153,4 +178,4 @@ class TestimonialBlock
     }
 }
 
-TestimonialBlock::init();
+HeadingArrowBlock::init();

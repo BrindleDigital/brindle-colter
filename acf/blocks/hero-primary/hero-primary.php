@@ -307,8 +307,8 @@ class PrimaryHeroBlock
                             ?>
 
                             <InnerBlocks
-                                allowedBlocks="<? echo esc_attr(wp_json_encode($allowed_inner_blocks)) ?>"
-                                template="<? echo esc_attr(wp_json_encode($template)) ?>"
+                                allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_inner_blocks)) ?>"
+                                template="<?php echo esc_attr(wp_json_encode($template)) ?>"
                                 templateLock="all" />
                         </div>
                     </div>

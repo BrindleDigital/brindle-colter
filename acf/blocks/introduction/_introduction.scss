@@ -8,17 +8,6 @@
 .ct-introduction-block {
     font-size: 1rem;
 
-    .ct-wrapper {
-        width: 100%;
-        padding-left: $content-padding-horizontal-mobile; // Lock page side padding with px's.
-        padding-right: $content-padding-horizontal-mobile;
-
-        @include respond($tablet) {
-            padding-left: $content-padding-horizontal-desktop;
-            padding-right: $content-padding-horizontal-desktop;
-        }
-    }
-
     .ct-container {
         position: relative;
         display: grid;
@@ -27,7 +16,6 @@
         gap: 2.143rem;
         margin: 0 auto;
         width: 100%;
-        max-width: $max-content-width-narrow;
 
         @include respond($tablet) {
             grid-auto-flow: column;
@@ -45,12 +33,12 @@
             &:before {
                 content: "";
                 display: block;
-                width: 100000px;
+                width: 100000px; // Arbitrarily large.
                 height: 2px;
                 background: var(--contrast); // Color defined in GeneratePress parent theme.
                 right: 103%;
                 margin-right: 12px;
-                top: 0.65em;  // Reasonable default.
+                top: 0.65em;     // Reasonable default.
                 position: absolute;
             }
         }

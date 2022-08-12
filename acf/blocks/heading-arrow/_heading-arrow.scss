@@ -1,0 +1,69 @@
+/**
+ * ACF Field Group: Child Theme: Heading Arrow Block
+ *
+ * Description
+ *   Styles a Gutenberg Gallery block with a heading and arrow that links to another page.
+ */
+ .ct-heading-arrow-block {
+    font-size: 1rem;
+    position: relative;
+
+    .ct-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    .ct-container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 2rem;
+        width: 100%;
+
+        @include respond($tablet) {
+            flex-flow: row wrap;
+        }
+    }
+
+    .ct-content {
+        flex: 1;
+
+        > *:first-child {
+            margin-top: 0;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        &:only-child {
+            margin: 0;
+            position: relative;
+        }
+    }
+
+    .ct-icon {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        height: 5.714rem;
+        width: 5.714rem;
+        background-color: #fff;
+    }
+
+    .ct-image {
+        display: block;
+        width: 52.5%;
+        height: 15%;
+        background: var(--accent-2); // Color defined in GeneratePress parent theme.
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 12'%3E%3Cpath d='M41.1971 6.53033C41.49 6.23744 41.49 5.76257 41.1971 5.46967L36.4241 0.696702C36.1312 0.403809 35.6563 0.403809 35.3634 0.696702C35.0706 0.989596 35.0706 1.46447 35.3634 1.75736L39.6061 6L35.3634 10.2426C35.0706 10.5355 35.0706 11.0104 35.3634 11.3033C35.6563 11.5962 36.1312 11.5962 36.4241 11.3033L41.1971 6.53033ZM0.666748 6.75L40.6667 6.75L40.6667 5.25L0.666748 5.25L0.666748 6.75Z' /%3E%3C/svg%3E");
+
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 12'%3E%3Cpath d='M41.1971 6.53033C41.49 6.23744 41.49 5.76257 41.1971 5.46967L36.4241 0.696702C36.1312 0.403809 35.6563 0.403809 35.3634 0.696702C35.0706 0.989596 35.0706 1.46447 35.3634 1.75736L39.6061 6L35.3634 10.2426C35.0706 10.5355 35.0706 11.0104 35.3634 11.3033C35.6563 11.5962 36.1312 11.5962 36.4241 11.3033L41.1971 6.53033ZM0.666748 6.75L40.6667 6.75L40.6667 5.25L0.666748 5.25L0.666748 6.75Z' /%3E%3C/svg%3E");
+    }
+}
+

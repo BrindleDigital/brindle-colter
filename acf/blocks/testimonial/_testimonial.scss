@@ -37,17 +37,6 @@
 .ct-testimonial-block {
     font-size: 1rem;
 
-    .ct-wrapper {
-        width: 100%;
-        padding-left: $content-padding-horizontal-mobile; // Lock page side padding with px's.
-        padding-right: $content-padding-horizontal-mobile;
-
-        @include respond($tablet) {
-            padding-left: $content-padding-horizontal-desktop;
-            padding-right: $content-padding-horizontal-desktop;
-        }
-    }
-
     .ct-container {
         position: relative;
         display: flex;
@@ -57,7 +46,6 @@
         padding: 0;
         margin: 0 auto;
         width: 100%;
-        max-width: $max-content-width-xnarrow;
         border: 2px solid var(--contrast); // Color defined in GeneratePress parent theme.
     }
 

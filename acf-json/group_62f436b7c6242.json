@@ -31,7 +31,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Heading",
+            "default_value": "The Colter Apartments\r\nFort Collins",
             "placeholder": "",
             "maxlength": "",
             "rows": 3,
@@ -122,5 +122,5 @@
     "active": true,
     "description": "Block suitable for introducing page content.",
     "show_in_rest": 0,
-    "modified": 1660216473
+    "modified": 1660252382
 }

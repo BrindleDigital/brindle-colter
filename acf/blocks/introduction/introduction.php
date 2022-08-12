@@ -147,8 +147,20 @@ class IntroductionBlock
                             *   Definitive: https://github.com/WordPress/gutenberg/tree/master/packages/block-editor/src/components/inner-blocks
                             *   GB Blocks: https://github.com/WordPress/gutenberg (See /gutenberg/packages/block-library/src)
                             */
+                            $template = [
+                                [
+                                    'core/paragraph', [
+                                        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' .
+                                            'Sed ullamcorper odio iaculis arcu imperdiet, ut blandit est blandit. ' .
+                                            'Praesent urna arcu, varius ac ultricies sed, tincidunt id erat.',
+                                    ]
+                                ]
+                            ];
                         ?>
-                        <InnerBlocks templateLock="false" />
+
+                        <InnerBlocks
+                            template="<?php echo esc_attr(wp_json_encode($template)) ?>"
+                            templateLock="false" />
                     </div>
                 </div>
             </div>
