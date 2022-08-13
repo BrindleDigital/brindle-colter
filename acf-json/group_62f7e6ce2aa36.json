@@ -1,0 +1,214 @@
+{
+    "key": "group_62f7e6ce2aa36",
+    "title": "Child Theme: Call to Action Block",
+    "fields": [
+        {
+            "key": "field_62f7e6ce33ce0",
+            "label": "Design",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_62f7eb3a858ea",
+            "label": "Top Banner",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62f7e6ce33da2",
+            "label": "Background Color",
+            "name": "top_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#eaeaea",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62f7e6ce33dbe",
+            "label": "Middle Banner",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62f7e6ce7b1a0",
+            "label": "Pattern",
+            "name": "middle_pattern_ct_call_to_action",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "Select One",
+                "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/call-to-action\/patterns\/pattern-squares-tranparent-dark.svg": "Pattern Squares Tranparent Dark",
+                "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/call-to-action\/patterns\/pattern-squares-tranparent-medium.svg": "Pattern Squares Tranparent Medium",
+                "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/call-to-action\/patterns\/pattern-squares-tranparent-light.svg": "Pattern Squares Tranparent Light"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_62f7ecd2858ec",
+            "label": "Image",
+            "name": "middle_image_id",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_62f7e6ce33df3",
+            "label": "Opacity",
+            "name": "middle_opacity",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "0.5",
+            "min": "",
+            "max": 1,
+            "step": "0.01",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_62f7ebf6858eb",
+            "label": "Background Color",
+            "name": "middle_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#eaeaea",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62f7eb1a858e9",
+            "label": "Bottom Banner",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_62f7e7c3858e7",
+            "label": "Background Color",
+            "name": "bottom_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000000",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/ct-call-to-action-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Hero block suitable for the home page.",
+    "show_in_rest": 0,
+    "modified": 1660428746
+}

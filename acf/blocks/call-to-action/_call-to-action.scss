@@ -1,0 +1,101 @@
+/**
+ * ACF Field Group: Child Theme: Call to Action Block
+ *
+ * Description
+ *   Styles a Gutenberg block intended as a call-to-action section. It defaults to containing
+ *   two columns. The left column defaults to containing a heading and paragraph. The right
+ *   column defaults to a button.
+ */
+
+.ct-call-to-action-block {
+    font-size: 1rem;
+
+    /*
+     * WP Admin backend editor fixes so our block displays as it should.
+     */
+    .block-editor-block-list__layout {
+        position: initial;
+    }
+
+    .ct-container {
+        position: relative;
+    }
+
+    .ct-content {
+        position: relative;
+        // display: flex;
+        // flex-flow: column nowrap;
+        // align-items: stretch;
+        // justify-content: space-between;
+        width: 100%;
+        min-height: 80px;
+    }
+
+    .ct-top {
+        position: absolute;
+        bottom: 50%;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+    }
+
+    .ct-middle {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .ct-middle-background {
+        width: 100%;
+    }
+
+    .ct-pattern {
+        position: relative;
+        background-repeat: repeat;
+        height: 80px;
+        width: 100%;
+    }
+
+    .ct-bottom {
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        z-index: 0;
+        width: 100%;
+    }
+
+    .ct-cta {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+
+        > * {
+            width: 100%;
+        }
+
+        .wp-block-columns {
+            margin-bottom: 0;
+        }
+
+        .wp-block-column {
+            > *:first-child {
+                margin-top: 0;
+            }
+            > *:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

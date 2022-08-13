@@ -333,7 +333,7 @@ class PrimaryHeroBlock
         $url_path = self::$images_url . '/patterns';
 
         // Only image files.
-        $regex = '/.+\.(jpg|png)$/i';
+        $regex = '/.+\.(jpg|png|svg)$/i';
 
         // Get the select menu used by ACF in the editor with paths to pattern files.
         $fields = ACFHelpers::get_select_menu_files_from_directory( $fields, $dir_path, $regex, $url_path );
