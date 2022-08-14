@@ -1,0 +1,45 @@
+/**
+ * ACF Field Group: Child Theme: Heading with Line Block
+ *
+ * Description
+ *   Styles a Gutenberg heading block with a line extending out from the left.
+ */
+
+/*
+ * Gutenberg naturally wants to put some vertical spacing between blocks.
+ * We don't want this on the WP block containing ours.
+ */
+.wp-admin {
+    .wp-block-acf-ct-heading-line-block {
+        margin: 0;
+    }
+}
+
+/*
+ * Block styling
+ */
+.ct-heading-line-block {
+    font-size: 1rem;
+
+    h1, h2, h3, h4, h5, h6 {
+        position: relative;
+
+        &:first-child {
+            margin: 0;
+        }
+
+        @include respond($tablet) {
+            &:before {
+                content: "";
+                display: block;
+                width: 100000px; // Arbitrarily large.
+                height: 2px;
+                background: var(--contrast); // Color defined in GeneratePress parent theme.
+                right: 103%;
+                margin-right: 12px;
+                top: 0.65em;     // Reasonable default.
+                position: absolute;
+            }
+        }
+    }
+}

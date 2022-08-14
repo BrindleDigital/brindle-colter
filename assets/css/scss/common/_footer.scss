@@ -1,0 +1,52 @@
+/**
+ * Footer styles
+ */
+
+.site-footer {
+    font-size: 1rem;
+
+    .footer-widgets {
+        padding-left: $content-padding-horizontal-mobile;
+        padding-right: $content-padding-horizontal-mobile;
+
+        @include respond($tablet) {
+            padding-left: $content-padding-horizontal-desktop;
+            padding-right: $content-padding-horizontal-desktop;
+        }
+    }
+
+    .widget_nav_menu {
+        font-weight: 700;
+    }
+
+    .reverse-icon {
+        column-gap: 0.857em;
+
+        > .gb-icon {
+            order: 2;
+        }
+    }
+
+    .wp-block-buttons {
+        justify-content: flex-start;
+        gap: 2em;
+
+        @include respond ($tablet) {
+            justify-content: flex-end;
+        }
+    }
+
+    footer {
+        padding-left: $content-padding-horizontal-mobile;
+        padding-right: $content-padding-horizontal-mobile;
+
+        @include respond($tablet) {
+            padding-left: $content-padding-horizontal-desktop;
+            padding-right: $content-padding-horizontal-desktop;
+        }
+
+        .inside-site-info {
+            border-top: 2px solid var(--base);
+        }
+    }
+}
