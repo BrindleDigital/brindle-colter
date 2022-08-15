@@ -1,0 +1,15 @@
+/**
+ * Visual Portfolio plugin styling
+ */
+
+.vp-portfolio {
+
+    // Override styling for title/excerpt under classic gallery images. (See home page)
+    .vp-portfolio__items-style-default .vp-portfolio__item-meta>* {
+        margin: 0 0 0.35em;
+    }
+
+    .vp-portfolio__items-style-default .vp-portfolio__item-meta {
+        padding-left: 0;
+    }
+}
