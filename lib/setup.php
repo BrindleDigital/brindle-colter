@@ -96,6 +96,9 @@ class Setup {
             self::$theme_version,
             true  // Include in footer.
         );
+
+        // We need these icons for the FloorPlans page (Rent Fetch plugin).
+        wp_enqueue_style( 'dashicons' );
     }
 }
 

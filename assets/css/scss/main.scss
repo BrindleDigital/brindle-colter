@@ -1,8 +1,10 @@
+@import "common/variables";
 @import "common/mixins";
 @import "common/generatepress";
 @import "common/global";
 @import "common/footer";
 @import "common/visual-portfolio";
+@import "common/expanding-list";
 
 // Backend styles only.
 @import "wp-admin/global";

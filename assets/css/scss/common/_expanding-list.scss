@@ -1,0 +1,29 @@
+/**
+ * Style our expanding unordered list.
+ *
+ * Add the classname 'ct-expanding-list-block' to a div (or container block) that contains
+ * the following two Gutenberg blocks:
+ *    1. Unordered list
+ *    2. Button (which is really just a link)
+ *
+ * When the button is clicked, the list will expand by x number of list items.
+ */
+
+ .ct-expanding-list-block {
+    ul {
+        list-style: none;
+        margin: 0 0 45px 0;
+        padding: 0;
+    }
+
+    li {
+        display: block;
+        padding: 20px 0;
+        border-bottom: 2px solid var(--accent-2);
+
+        // Start by hiding all but the first 5 list items.
+        &:nth-child(n+6) {
+            display: none;
+        }
+    }
+}
