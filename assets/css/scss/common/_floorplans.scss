@@ -1,0 +1,138 @@
+/**
+ * Floorplan styles
+ */
+
+.ct-floorplans-container {
+    position: relative;
+
+    .wp-block-ub-tabbed-content {
+        position:relative;
+        top: -5.5rem;
+        margin: 0;
+    }
+
+    .wp-block-ub-tabbed-content-tab-title-wrap {
+        border-radius: 0;
+        border: none;
+    }
+
+    .wp-block-ub-tabbed-content-tab-title {
+        font-size: 1.2857rem;
+        padding: 1rem 2.429rem;
+        white-space: nowrap;
+    }
+
+    .wp-block-ub-tabbed-content-tabs-content {
+        border: none;
+        padding: 6rem 0 0;
+    }
+
+    .type-floorplans {
+        background-color: var(--base);
+        box-shadow: 0 0.2143rem 0.5714rem rgba(0, 0, 0, 0.1);
+    }
+
+    div.floorplan-images-wrap {
+        padding: 2.1429rem 2.1429rem 0;
+    }
+
+    div.floorplangrid__content {
+        padding: 2.5rem 2.1429rem 2.1429rem;
+    }
+
+    .floorplangrid__title {
+        font-size: 1.7143rem;
+        display: inline-block;
+        margin-right: 1.25rem;
+    }
+
+    .has-specials-floorplan-wrap {
+        display: inline-block;
+    }
+
+    .floorplangrid__info,
+    .floorplangrid__rent_range {
+        font-size: 1.2857rem;
+    }
+
+    .floorplangrid__info {
+        margin: 0.5714rem 0 0.3571rem;
+    }
+
+    .floorplangrid__rent_range {
+        margin: 0.3571rem 0 0.5714rem;
+    }
+
+    button.slick-arrow {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        font-size: 0;
+        font-weight: 400;
+
+        &.slick-prev {
+            left: 0 !important;
+        }
+        &.slick-next {
+            right: 0 !important;
+        }
+    }
+
+    .has-specials-floorplan {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: var(--accent-2);
+        background-color: var(--contrast-4);
+        padding: 0.7143rem 1rem;
+        width: fit-content;
+
+        &:before {
+            position: initial;
+            background-image: none;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            -webkit-mask-image: url(../images/icons/star-min.svg);
+            mask-image: url(../images/icons/star-min.svg);
+            background-color: var(--accent-2);
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+    }
+
+    ul.filters {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        justify-content: center;
+        column-gap: 3rem;
+        row-gap: 1.5rem;
+        margin: 0 0 6rem;
+
+        li {
+            margin: 0;
+            width: auto;
+        }
+
+        a.filter-select {
+            position: relative;
+            font-weight: 700;
+            padding: 0.7143rem 0;
+            background-color: transparent;
+            color: var(--contrast);
+            text-decoration: none;
+            transition: .3s all ease;
+            border-radius: 0;
+            display: inline-block;
+            white-space: nowrap;
+
+            &.active {
+                background-color: transparent;
+                border-bottom: 0.3571rem solid  var(--accent-2);
+            }
+        }
+    }
+}
