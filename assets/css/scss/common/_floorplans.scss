@@ -63,6 +63,11 @@
         margin: 0.3571rem 0 0.5714rem;
     }
 
+    .floorplan-buttons a.button {
+        color: var(--base);
+        background-color: var(--accent-2);
+    }
+
     button.slick-arrow {
         display: flex;
         flex-flow: row wrap;
