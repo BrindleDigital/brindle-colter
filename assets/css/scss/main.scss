@@ -1,3 +1,6 @@
+@import "vendor/easy-responsive-tabs";
+@import "vendor/magnific-popup";
+
 @import "common/variables";
 @import "common/mixins";
 @import "common/generatepress";
@@ -9,6 +12,10 @@
 
 // Backend styles only.
 @import "wp-admin/global";
+
+// Custom Post Types
+@import "custom-post-types/neighborhood/neighborhood";
+@import "custom-post-types/neighborhood/wp-google-map";
 
 /* Load our ACF Block styles. Add yours here. */
 @import "../../../acf/blocks/hero-primary/hero-primary";

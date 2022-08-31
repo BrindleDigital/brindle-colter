@@ -14,6 +14,8 @@ Class ACFSetup
 
         // Register with ACF the path to our acf-json files.
         add_filter( 'acf/settings/load_json', [$this, 'acf_register_json_files'], 10, 1 );
+
+        $this->add_acf_options_page();
     }
 
     /**
@@ -42,6 +44,12 @@ Class ACFSetup
     {
         $paths[] = Setup::$theme_dir . '/acf-json';
         return $paths;
+    }
+
+    public function add_acf_options_page() {
+        if ( function_exists( 'acf_add_options_page' ) ) {
+            acf_add_options_page();
+        }
     }
 }
 

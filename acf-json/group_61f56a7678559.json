@@ -1,0 +1,82 @@
+{
+    "key": "group_61f56a7678559",
+    "title": "Neighborhood Details",
+    "fields": [
+        {
+            "key": "field_61f56a2b94840",
+            "label": "Address",
+            "name": "address",
+            "type": "text",
+            "instructions": "We will use this to auto generate  get google map link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61f56a009483f",
+            "label": "Custom Location Link",
+            "name": "location_link",
+            "type": "text",
+            "instructions": "Over rides the default google map link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_620e1a066f702",
+            "label": "Item Map Latitude and Longitude",
+            "name": "item_map_latitude_and_longitude",
+            "type": "text",
+            "instructions": "Latitude And Longitude Separated by comma https:\/\/www.gps-coordinates.net\/ We can get both from this link after giving address",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "neighborhood"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1661880998
+}

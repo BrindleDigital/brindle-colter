@@ -17,5 +17,6 @@ function ct_load_files( $files ) {
 ct_load_files([
     'lib/setup.php',
     'lib/helpers.php',
+    '/lib/custom-post-types/neighborhood/neighborhood.php',
     'acf/setup.php',
 ]);

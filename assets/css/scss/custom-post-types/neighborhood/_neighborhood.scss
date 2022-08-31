@@ -1,0 +1,249 @@
+/*
+ * Neighborhood/Google map specific styling
+ *
+ * The styling here is currently ONLY for the [available-neighborhood-with-map] shortcode.
+ * The styling for the following map shortcodes are not provided for here:
+ *   o [available-neighborhood]
+ *   o [available-neighborhood-with-out-map]\
+ *
+ * These styles can be added at a later date if these shortcodes are desired for this theme.
+ */
+body .neighborhood-b__poi-category-item-title .tab-grid {
+    max-width: 100%;
+    margin-bottom: 0;
+    text-align: left;
+    padding: 0;
+}
+
+body .neighborhood-b__poi-category-item-title {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body .neighborhood-b__poi-category-list-item {
+    list-style: none;
+    height: 120px;
+    width: 25%;
+    border-bottom: 1px solid;
+    text-align: left;
+}
+
+body .neighborhood-b__poi-category-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+body .neighborhood-b__poi-container {
+    width: 100%;
+}
+
+body .tab-grid h4 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+body .neighborhood-b__poi-category-list-item:nth-child(-n+3) {
+    border-top: 0;
+}
+
+body .map-a__cat-link-column {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+body .map__infobox-poi-address-header {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+body .map__infobox-poi-address {
+    font-size: 14px;
+}
+
+body .map__infobox-poi-link {
+    font-size: 14px;
+}
+
+// Vertical tab
+.neighborhood-b__poi-category-item-link:hover,
+.neighborhood-b__poi-category-item-link--active,
+.neighborhood-b__poi-category-item-link:focus {
+    background: none !important;
+}
+
+/*
+ * Breakpoints
+ */
+@media(max-width:767px) {
+    .map-neighbourhood {
+        min-height: 320px;
+    }
+
+    body .neighborhood-b__poi-category-list-item {
+        width: 100%;
+    }
+}
+
+// Mobile view: Category dropdown menu positioning
+@media (max-width: 980px) {
+    .map-a__cat-select-wrap {
+        display: flex !important;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        margin: 1.5rem 0 !important;
+    }
+
+    body .map-a__cat-select {
+        margin: 0;
+    }
+
+    body .map-a__cat-select-label {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media(max-width:991px) {
+    // Mobile view: Category label adjacent menu dropdown
+    body .map-a__cat-select-label {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    body .map-a__cat-select {
+        width: auto;
+    }
+
+    body .map-a__cat-link-table {
+        height: auto;
+    }
+
+    body .map-a__cat-link-column {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    body .map-a__cat-item:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    body .map-a__cat-selected {
+        padding: 0 20px;
+    }
+
+    body .map-a__cat-link-table {
+        padding: 0;
+    }
+
+    body .map-a__cat-link-column {
+        font-size: 15px;
+    }
+
+    body .map-a__cat-selected .map-a__cat-link-column {
+        color: #fff;
+        padding-right: 10px;
+    }
+}
+
+@media(min-width:992px) {
+    body .map-a__cat-link {
+        position: relative;
+    }
+
+    body .map-a__cat-link::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 2px;
+        height: 35px;
+        -webkit-transform: translate(3px, -50%);
+        transform: translate(3px, -50%);
+    }
+
+    body .map-a__cat-link.map-a__cat-link--active::before {
+        display: none;
+    }
+
+    body .map-a__cat-item:last-child .map-a__cat-link::before {
+        display: none;
+    }
+
+    body .map-a__cat-link[data-selected="true"]::before {
+        display: none;
+    }
+}
+
+/**
+ * Neighborhood/Map color settings
+ */
+// Button text
+body .map-a__cat-item,
+body .map-a__cat-link-column {
+    color: var(--contrast-2);
+    font-family: inherit;
+}
+
+// Active button and panel
+body .neighborhood-b__poi,
+body .map-a__cat-link[data-selected="true"],
+body .map-a__cat-selected {
+    background-color: var(--contrast-2) !important;
+    color: var(--contrast-4);
+
+    &:hover {
+        background-color: var(--contrast-2);
+        color: var(--contrast-4);
+    }
+}
+// Active button text
+body .map-a__cat-link[data-selected="true"] .map-a__cat-link-column,
+body .map-a__cat-link:hover:not(.map-a__cat-link--active) {
+    color: var(--base);
+}
+
+// Button background
+body .map-a__cat-item {
+    background-color: var(--base);
+}
+
+// Button separator lines
+body .map-a__cat-link::before {
+    background-color: var(--contrast-2);
+}
+
+// Address header
+body .tab-grid h4,
+body.map__infobox-poi-address-header {
+    color: var(--base);
+}
+
+// Address
+body .neighborhood-b__poi-category-item-title,
+body .neighborhood-b__poi-category-item-title {
+    color: var(--base);
+}
+
+// Horizontal address separator lines
+body .neighborhood-b__poi-category-list-item {
+    border-color: var(--base);
+}
