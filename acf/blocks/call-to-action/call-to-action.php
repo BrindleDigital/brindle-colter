@@ -219,6 +219,8 @@ class CallToActionBlock
                                 *   accepted for the block in REACT. You'll have to do some digging to find these, but
                                 *   you can start with these resources:
                                 *
+                                *  Don't set the templateLock="true" if you wish to make this block a 'reusable' block in the editor!
+                                *
                                 *   Examples: https://www.billerickson.net/innerblocks-with-acf-blocks/#template-lock-with-innerblocks
                                 *   Definitive: https://github.com/WordPress/gutenberg/tree/master/packages/block-editor/src/components/inner-blocks
                                 *   GB Blocks: https://github.com/WordPress/gutenberg (See /gutenberg/packages/block-library/src)
@@ -256,7 +258,7 @@ class CallToActionBlock
 
                             <InnerBlocks
                                 template="<?php echo esc_attr(wp_json_encode($template)) ?>"
-                                templateLock="true" />
+                                templateLock="false" />
                         </div>
                     </div>
                 </div>
