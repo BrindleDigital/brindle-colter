@@ -12,30 +12,29 @@
             align-items: center;
 
             & > .menu-item {
-                margin-right: 3rem;
-
                 & > a {
-                    padding: 1.2857rem 0;
+                    padding: 1.2857rem 1.2rem;
                     line-height: 1.5;
                     font-weight: 700;
+
+                    &:hover {
+                        background-color: var(--contrast-4) !important;
+                    }
                 }
 
                 &.ct-menu-button {
-                    margin-right: 0;
-
                     > a,
                     > a:hover {
                         display: inline-block;
                         padding: 1.2857rem 2rem;
                         color: var(--base) !important;
-                        background-color: var(--accent-2);
+                        background-color: var(--accent-2) !important;
                         line-height: 1.5;
+                        margin-left: 1.2rem;
                     }
                 }
 
                 &.ct-submenu-icon {
-                    margin-right: 0;
-
                     & > a {
                         display: flex;
                         align-items: center;
@@ -56,6 +55,10 @@
                             background-position: 50% 50%;
                             background-repeat: no-repeat;
                             background-image: url(../images/icons/menu-icon.svg);
+                        }
+
+                        &:hover {
+                            background-color: transparent !important;
                         }
                     }
 
@@ -115,8 +118,6 @@ body:not(.home) {
 
         #menu-main {
             & > .menu-item {
-                margin-right: 3rem;
-
                 & > a {
                     padding-top: 2rem !important;
                     padding-bottom: 2rem !important;
@@ -130,6 +131,33 @@ body:not(.home) {
                     padding: 2rem 0;
             }
         }
+    }
+}
+
+body.page-landing {
+    .header-wrap {
+        .site-header,
+        #mobile-header {
+            display: none !important;
+        }
+    }
+}
+
+.top-bar {
+    display: none;
+}
+
+.home .top-bar {
+    font-size: 1rem;
+    display: block;
+
+    .inside-top-bar {
+        gap: 2em;
+    }
+
+    .widget {
+        order: 0 !important;
+        margin: 0 !important;
     }
 }
 

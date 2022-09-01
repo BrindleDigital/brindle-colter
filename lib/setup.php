@@ -38,6 +38,7 @@ class Setup {
     {
         $this->setup_global_constants();
         $this->enqueue_assets();
+        $this->setup_filters();
     }
 
     /**
@@ -58,7 +59,7 @@ class Setup {
     }
 
     /**
-     * Enqueue scripts and stylesheets
+     * Enqueue scripts and stylesheets.
      */
     private function enqueue_assets()
     {
@@ -85,7 +86,7 @@ class Setup {
     }
 
     /**
-     * Enqueue WordPress scripts
+     * Enqueue WordPress scripts.
      */
     public function enqueue_wp_scripts()
     {
@@ -99,6 +100,23 @@ class Setup {
 
         // We need these icons for the FloorPlans page (Rent Fetch plugin).
         wp_enqueue_style( 'dashicons' );
+    }
+
+    /**
+     * Setup filters.
+     */
+    public function setup_filters()
+    {
+        // Add page slug to body class. (i.e. page-mypageslug)
+        add_filter( 'body_class', function( $classes ) {
+            global $post;
+
+            if ( isset( $post ) ) {
+                $classes[] = $post->post_type . '-' . $post->post_name;
+            }
+
+            return $classes;
+        } );
     }
 }
 
