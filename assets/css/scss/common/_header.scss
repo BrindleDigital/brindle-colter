@@ -22,6 +22,8 @@
                     }
                 }
 
+                // Apply this style to a menu item in the WP Admin backend.
+                // This will convert the menu option to a button.
                 &.ct-menu-button {
                     > a,
                     > a:hover {
@@ -34,6 +36,8 @@
                     }
                 }
 
+                // Apply this style to a menu item in the WP Admin backend.
+                // This will convert the menu option to a drop-down icon.
                 &.ct-submenu-icon {
                     & > a {
                         display: flex;
@@ -107,6 +111,10 @@
     }
 }
 
+/*
+ * On all pages except the home page, position the header 'above' the page content.
+ * i.e. Do not overlay the top content.
+ */
 body:not(.home) {
     .header-wrap {
         position: relative;
@@ -134,6 +142,9 @@ body:not(.home) {
     }
 }
 
+/*
+ * The landing page does not include a header.
+ */
 body.page-landing {
     .header-wrap {
         .site-header,
@@ -143,10 +154,12 @@ body.page-landing {
     }
 }
 
+/*
+ * The top bar above the header is only displayed on the home page.
+ */
 .top-bar {
     display: none;
 }
-
 .home .top-bar {
     font-size: 1rem;
     display: block;

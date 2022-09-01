@@ -67,10 +67,10 @@ class HeadingArrowBlock
                 acf_register_block_type([
                     'name'              => self::$unique_name,
                     'title'             => 'Heading with Arrow',
-                    'description'       => 'Create a heading with a linked arrow',
+                    'description'       => 'Heading with a arrow icon linked to another page.',
                     'render_callback'   => [$this, 'display_block'],
-                    'category'          => 'child-theme',
-                    'icon'              => "", // TODO
+                    'category'          => Setup::$block_category['slug'],
+                    'icon'              => Setup::$block_category['icon'],
                     'keywords'          => ['child theme', 'colter', 'heading', 'arrow', 'link'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',

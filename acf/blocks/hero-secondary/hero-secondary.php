@@ -100,11 +100,11 @@ class SecondaryHeroBlock
             if ( function_exists( 'acf_register_block_type' )) {
                 acf_register_block_type([
                     'name'              => self::$unique_name,
-                    'title'             => 'Secondary hero',
+                    'title'             => 'Secondary Hero',
                     'description'       => 'Hero section suitable for your internal pages.',
                     'render_callback'   => [$this, 'display_block'],
-                    'category'          => 'child-theme',
-                    'icon'              => "", // TODO
+                    'category'          => Setup::$block_category['slug'],
+                    'icon'              => Setup::$block_category['icon'],
                     'keywords'          => ['child theme', 'colter', 'hero', 'secondary', 'image'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',

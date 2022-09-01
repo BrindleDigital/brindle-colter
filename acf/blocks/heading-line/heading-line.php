@@ -66,11 +66,11 @@ class HeadingLineBlock
             if ( function_exists( 'acf_register_block_type' )) {
                 acf_register_block_type([
                     'name'              => self::$unique_name,
-                    'title'             => 'Heading with leading line',
-                    'description'       => 'Heading with leading line',
+                    'title'             => 'Heading with Leading Line',
+                    'description'       => 'Heading with a line extending to left edge of viewport.',
                     'render_callback'   => [$this, 'display_block'],
-                    'category'          => 'child-theme',
-                    'icon'              => "", // TODO
+                    'category'          => Setup::$block_category['slug'],
+                    'icon'              => Setup::$block_category['icon'],
                     'keywords'          => ['child theme', 'colter', 'line', 'heading'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',

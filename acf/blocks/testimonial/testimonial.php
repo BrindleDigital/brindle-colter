@@ -67,10 +67,10 @@ class TestimonialBlock
                 acf_register_block_type([
                     'name'              => self::$unique_name,
                     'title'             => 'Testimonial',
-                    'description'       => 'Create a stylized testimonial.',
+                    'description'       => 'Single stylized testimonial.',
                     'render_callback'   => [$this, 'display_block'],
-                    'category'          => 'child-theme',
-                    'icon'              => "", // TODO
+                    'category'          => Setup::$block_category['slug'],
+                    'icon'              => Setup::$block_category['icon'],
                     'keywords'          => ['child theme', 'colter', 'testimonial'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',

@@ -100,8 +100,8 @@ class CallToActionBlock
                     'title'             => 'Call to Action',
                     'description'       => 'Two-columns with call to action and button.',
                     'render_callback'   => [$this, 'display_block'],
-                    'category'          => 'child-theme',
-                    'icon'              => "", // TODO
+                    'category'          => Setup::$block_category['slug'],
+                    'icon'              => Setup::$block_category['icon'],
                     'keywords'          => ['child theme', 'colter', 'call', 'action'],
                     'post_types'        => ['page'], // Allow only on page types.
                     'mode'              => 'preview',
