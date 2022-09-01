@@ -157,6 +157,26 @@
             "mime_types": ""
         },
         {
+            "key": "field_6310af4c60ea3",
+            "label": "Image Overlay",
+            "name": "image_overlay",
+            "type": "range",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": "%"
+        },
+        {
             "key": "field_62ec2f48acb94",
             "label": "Divider Layout",
             "name": "",
@@ -237,9 +257,9 @@
                     },
                     "choices": {
                         "none": "Select One",
-                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-transparent-light.png": "Squares Transparent Light",
-                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-transparent-dark.png": "Squares Transparent Dark",
-                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-transparent-medium.png": "Squares Transparent Medium"
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-tranparent-light.svg": "Squares Tranparent Light",
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-tranparent-dark.svg": "Squares Tranparent Dark",
+                        "https:\/\/brindle-colter-staging.local\/wp-content\/themes\/brindle-colter\/assets\/images\/blocks\/secondary-hero\/patterns\/squares-tranparent-medium.svg": "Squares Tranparent Medium"
                     },
                     "default_value": false,
                     "allow_null": 0,
@@ -348,5 +368,5 @@
     "active": true,
     "description": "Hero block suitable for the home page.",
     "show_in_rest": 0,
-    "modified": 1659653226
+    "modified": 1662037875
 }

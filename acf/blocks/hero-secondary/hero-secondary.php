@@ -193,6 +193,17 @@ class SecondaryHeroBlock
         $image_desktop_url = is_numeric( get_field( 'image_id' ) )
             ? wp_get_attachment_image_url( get_field( 'image_id' ), self::$unique_name . '-desktop' )
             : $image_url;
+
+        $image_overlay = is_numeric( get_field( 'image_overlay' ) )
+            ? floatval( get_field( 'image_overlay' ) ) / 100  // Convert 50 to 0.50
+            : '0'; // Default
+
+        $image_overlay_gradient = 'linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0))';
+
+        if ( !! $image_overlay ) {
+            $image_overlay_gradient =
+                'linear-gradient(0deg, rgba(0,0,0,' . $image_overlay . '), rgba(0,0,0,' . $image_overlay . '))';
+        }
     ?>
         <style>
             /* Styles for our Hero block below */
@@ -213,18 +224,18 @@ class SecondaryHeroBlock
             }
 
             #<?php echo $id; ?> .ct-image-container {
-                background: url(<?php echo $image_mobile_url; ?>) center/cover;
+                background: <?php echo $image_overlay_gradient; ?>, url(<?php echo $image_mobile_url; ?>) center/cover;
             }
 
             @media (min-width: <?php echo Helpers::$breakpoint['tablet']; ?>) {
                 #<?php echo $id; ?> .ct-image-container {
-                    background: url(<?php echo $image_tablet_url; ?>) center/cover;
+                    background: <?php echo $image_overlay_gradient; ?>, url(<?php echo $image_tablet_url; ?>) center/cover;
                 }
             }
 
             @media (min-width: <?php echo Helpers::$breakpoint['desktop']; ?>) {
                 #<?php echo $id; ?> .ct-image-container {
-                    background: url(<?php echo $image_desktop_url; ?>) center/cover;
+                    background: <?php echo $image_overlay_gradient; ?>, url(<?php echo $image_desktop_url; ?>) center/cover;
                 }
             }
 
