@@ -17,22 +17,27 @@
                     line-height: 1.5;
                     font-weight: 700;
 
-                    &:hover {
-                        background-color: var(--contrast-4) !important;
-                    }
+                    // &:hover {
+                    //     background-color: var(--contrast-4) !important;
+                    // }
                 }
 
                 // Apply this style to a menu item in the WP Admin backend.
                 // This will convert the menu option to a button.
                 &.ct-menu-button {
-                    > a,
-                    > a:hover {
+                    > a {
                         display: inline-block;
                         padding: 1.2857rem 2rem;
-                        color: var(--base) !important;
-                        background-color: var(--accent-2) !important;
+                        // Same color as our button in the Appearance > Customize > Color panel.
+                        color: var(--ct-form-button-text-color) !important;
+                        background-color: var(--ct-form-button-background-color) !important;
                         line-height: 1.5;
                         margin-left: 1.2rem;
+
+                        &:hover {
+                            color: var(--ct-form-button-text-color-hover) !important;
+                            background-color: var(--ct-form-button-background-color-hover) !important;
+                        }
                     }
                 }
 
@@ -49,6 +54,7 @@
                         margin: 0;
                         line-height: 0;
                         font-size: 0;
+                        background-color: transparent !important;
 
                         &:before {
                             content: "";
@@ -76,10 +82,6 @@
                         padding: 1rem;
                         width: auto;
                         min-width: 14.2857rem;
-
-                        > li > a:hover {
-                            background-color: var(--contrast-4);
-                        }
                     }
                 }
             }
@@ -96,12 +98,6 @@
 
             > .menu {
                 width: 100%;
-            }
-
-            .menu-item {
-                 > a:hover {
-                    background-color: var(--contrast-4);
-                }
             }
 
             .sub-menu {

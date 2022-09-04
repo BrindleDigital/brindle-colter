@@ -80,12 +80,11 @@ class Setup {
     private function enqueue_assets()
     {
         // Enqueue styles and scripts for the frontend.
-        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_styles'] );
-        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_scripts'] );
+        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_styles'], 50, 0 ); // 50: We want to be near last.
+        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_scripts'], 50, 0 );
 
         // Enqueue styles and scripts for the backend.
-        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_wp_styles'] );
-        // add_action( 'admin_enqueue_scripts', [$this, 'enqueue_wp_scripts'] );
+        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_wp_styles'], 50, 0 );
     }
 
     /**
@@ -94,7 +93,7 @@ class Setup {
     public function enqueue_wp_styles()
     {
         wp_enqueue_style(
-            'ct-main-css',  // Preface always with 'ct-' to avoid name collisions.
+            'ct-main',  // Preface always with 'ct-' to avoid name collisions.
             self::$styles_uri . '/main.min.css',
             [],
             self::$theme_version

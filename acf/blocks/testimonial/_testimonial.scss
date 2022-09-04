@@ -19,7 +19,6 @@
         line-height: 1.5;
         text-align: center;
         margin: 0 0 1.5rem;
-        color: var(--contrast-2); // Color defined in GeneratePress parent theme.
     }
 
     cite {
@@ -30,7 +29,6 @@
         letter-spacing: 0.2em;
         text-transform: uppercase;
         text-align: center;
-        color: var(--contrast); // Color defined in GeneratePress parent theme.
     }
 }
 
@@ -46,7 +44,8 @@
         padding: 0;
         margin: 0 auto;
         width: 100%;
-        border: 2px solid var(--contrast); // Color defined in GeneratePress parent theme.
+        // Same color as our text in the Appearance > Customize > Color panel.
+        border: 2px solid var(--ct-text-color);
     }
 
     .ct-icon {
@@ -58,7 +57,8 @@
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
-        background-color: var(--accent-2); // Color defined in GeneratePress parent theme.
+        // Same color as our buttons in the Appearance > Customize > Color panel.
+        background-color: var(--ct-form-button-background-color);
         z-index: 1;
         border-radius: 50%;
 

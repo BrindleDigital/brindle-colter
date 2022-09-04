@@ -182,18 +182,22 @@ class PrimaryHeroBlock
 
         $side_color = is_string( get_field( 'side_text_color' ) )
             ? get_field( 'side_text_color' )
-            : 'var(--contrast)'; // From GeneratePress color palette.
+            // Default: Same color as our text in the Appearance > Customize > Color panel.
+            : 'var(--ct-text-color)';
 
         $side_background_color = is_string( get_field( 'side_background_color' ) )
             ? get_field( 'side_background_color' )
-            : 'var(--contrast-4)';    // From GeneratePress color palette.
+            // Default: Color variable in the Appearance > Customize > Color panel.
+            // We don't have anything else to link it to.
+            : 'var(--contrast-4)';
 
         /*
          * Bottom layout
          */
         $bottom_background_color = is_string( get_field( 'bottom_background_color' ) )
             ? get_field( 'bottom_background_color' )
-            : 'var(--base)';  // From GeneratePress color palette.
+            // Default: Same color as our background in the Appearance > Customize > Color panel.
+            : 'var(--ct-background-color)';
 
         /*
          * Pattern layout

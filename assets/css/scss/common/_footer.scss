@@ -46,7 +46,8 @@
         }
 
         .inside-site-info {
-            border-top: 2px solid var(--base);
+            // Same color as our footer text color in the Appearance > Customize > Color panel.
+            border-top: 2px solid var(--ct-footer-widget-text-color);
         }
     }
 

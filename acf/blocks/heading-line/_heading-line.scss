@@ -34,7 +34,8 @@
                 display: block;
                 width: 100000px; // Arbitrarily large.
                 height: 2px;
-                background: var(--contrast); // Color defined in GeneratePress parent theme.
+                // Same color as our h2 in the Appearance > Customize > Color panel.
+                background: var(--ct-h2-color);
                 right: 103%;
                 margin-right: 12px;
                 top: 0.65em;     // Reasonable default.

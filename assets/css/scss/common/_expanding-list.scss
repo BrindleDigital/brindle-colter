@@ -19,7 +19,8 @@
     li {
         display: block;
         padding: 20px 0;
-        border-bottom: 2px solid var(--accent-2);
+        // Same color as our button in the Appearance > Customize > Color panel.
+        border-bottom: 2px solid var(--ct-form-button-background-color);
 
         // Start by hiding all but the first 5 list items.
         &:nth-child(n+6) {

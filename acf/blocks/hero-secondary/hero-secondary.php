@@ -152,7 +152,8 @@ class SecondaryHeroBlock
          */
         $container_background_color = is_string( get_field( 'container_background_color' ) )
             ? get_field( 'container_background_color' )
-            : 'var(--base)';  // From GeneratePress color palette.
+            // Default: Same color as our background in the Appearance > Customize > Color panel.
+            : 'var(--ct-background-color)';
 
         /*
          * Pattern layout
@@ -175,7 +176,8 @@ class SecondaryHeroBlock
          */
         $divider_background_color = is_string( get_field( 'divider_background_color' ) )
             ? get_field( 'divider_background_color' )
-            : 'var(--contrast-5)';    // From GeneratePress color palette.
+            // Default: Same color as our background in the Appearance > Customize > Color panel.
+            : 'var(--ct-background-color)';
 
         /*
          * Image layout

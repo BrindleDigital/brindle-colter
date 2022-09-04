@@ -64,8 +64,14 @@
     }
 
     .floorplan-buttons a.button {
-        color: var(--base);
-        background-color: var(--accent-2);
+        // Same color as our button in the Appearance > Customize > Color panel.
+        color: var(--ct-form-button-text-color);
+        background-color: var(--ct-form-button-background-color);
+
+        &:hover {
+            color: var(--ct-form-button-text-color-hover);
+            background-color: var(--ct-form-button-background-color-hover);
+        }
     }
 
     button.slick-arrow {
@@ -90,7 +96,8 @@
         gap: 0.7rem;
         font-weight: 700;
         text-transform: capitalize;
-        color: var(--accent-2);
+        // Same color as our button in the Appearance > Customize > Color panel.
+        color: var(--ct-form-button-background-color);
         background-color: var(--contrast-4);
         padding: 0.7143rem 1rem;
         width: fit-content;
@@ -102,7 +109,8 @@
             mask-size: cover;
             -webkit-mask-image: url(../images/icons/star-min.svg);
             mask-image: url(../images/icons/star-min.svg);
-            background-color: var(--accent-2);
+            // Same color as our button in the Appearance > Customize > Color panel.
+            background-color: var(--ct-form-button-background-color);
             width: 1.2rem;
             height: 1.2rem;
         }
@@ -136,7 +144,8 @@
 
             &.active {
                 background-color: transparent;
-                border-bottom: 0.3571rem solid  var(--accent-2);
+                // Same color as our button in the Appearance > Customize > Color panel.
+                border-bottom: 0.3571rem solid var(--ct-form-button-background-color);
             }
         }
     }
