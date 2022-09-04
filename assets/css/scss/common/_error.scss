@@ -1,0 +1,15 @@
+/**
+ * Style our 404.php, 500.php pages
+ */
+
+ .ct-error-container {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    padding: 5em 40px;
+    width: 100%;
+
+    @include respond($tablet) {
+        padding: 5em 80px;
+    }
+}
