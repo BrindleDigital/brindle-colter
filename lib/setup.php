@@ -85,6 +85,7 @@ class Setup {
 
         // Enqueue styles and scripts for the backend.
         add_action( 'admin_enqueue_scripts', [$this, 'enqueue_wp_styles'], 50, 0 );
+        add_action( 'enqueue_block_editor_assets', [$this, 'enqueue_block_editor_assets'], 10, 0 );
     }
 
     /**
@@ -106,7 +107,7 @@ class Setup {
     public function enqueue_wp_scripts()
     {
         wp_enqueue_script(
-            'ct-main-js',
+            'ct-main',
             self::$scripts_uri . '/main.min.js',
             ['jquery'],
             self::$theme_version,
@@ -115,6 +116,20 @@ class Setup {
 
         // We need these icons for the FloorPlans page (Rent Fetch plugin).
         wp_enqueue_style( 'dashicons' );
+    }
+
+    /**
+     * Enqueue Block Editor scripts on backend only.
+     */
+    public function enqueue_block_editor_assets()
+    {
+        wp_enqueue_script(
+            'wpadmin-setup',
+            self::$scripts_uri . '/wpadmin/setup.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
     }
 
     /**

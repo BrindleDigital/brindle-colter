@@ -1,0 +1,67 @@
+/*
+ * Style the Gutenberg generated buttons for the frontend and backend.
+ */
+
+// Add to the frontend.
+.wp-block-buttons .wp-block-button,
+// Add to the backend Gutenberg editor so that the button style previews show the correctly styled buttons.
+[data-type="core/button"] {
+    /*
+     * Arrow button
+     */
+    &.is-style-btn-arrow {
+        .wp-block-button__link {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            position: relative;
+
+            padding-right: 2.1429rem !important;
+            margin-right: 22px;
+
+            &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                z-index: 1;
+                -webkit-mask-size: cover;
+                mask-size: cover;
+                -webkit-mask-image: url(../images/icons/btn-line.svg);
+                mask-image: url(../images/icons/btn-line.svg);
+                // Same color as our button text in the Appearance > Customize > Color panel.
+                background-color: var(--ct-form-button-text-color);
+                height: 2px;
+                width: 20px;
+            }
+
+            &:after {
+                display: inline-block;
+                content: "";
+                position: absolute;
+                right: -15px;;
+                transition: all 300ms ease;
+                z-index: 0;
+                -webkit-mask-size: cover;
+                mask-size: cover;
+                -webkit-mask-image: url(../images/icons/btn-arrow.svg);
+                mask-image: url(../images/icons/btn-arrow.svg);
+                // Same color as our button background in the Appearance > Customize > Color panel.
+                background-color: var(--ct-form-button-background-color);
+                height: 12px;
+                width: 21px;
+            }
+
+            &:hover {
+                &:before {
+                    background-color: var(--ct-form-button-text-color-hover);
+                }
+
+                &:after {
+                    right: -21px;
+                    background-color: var(--ct-form-button-background-color-hover);
+                }
+            }
+        }
+    }
+}
