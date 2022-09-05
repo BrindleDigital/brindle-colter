@@ -46,6 +46,9 @@ Class ACFSetup
         return $paths;
     }
 
+    /**
+     * Add our ACF options page. You'll now find a 'Menu > Options' page.
+     */
     public function add_acf_options_page() {
         if ( function_exists( 'acf_add_options_page' ) ) {
             acf_add_options_page();
