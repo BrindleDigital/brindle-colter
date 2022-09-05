@@ -84,7 +84,7 @@ class Setup {
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_scripts'], 50, 0 );
 
         // Enqueue styles and scripts for the backend.
-        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_wp_styles'], 50, 0 );
+        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_admin_wp_styles'], 50, 0 );
         add_action( 'enqueue_block_editor_assets', [$this, 'enqueue_block_editor_assets'], 10, 0 );
     }
 
@@ -102,20 +102,74 @@ class Setup {
     }
 
     /**
+     * Enqueue Admin WordPress styles.
+     */
+    public function enqueue_admin_wp_styles()
+    {
+        wp_enqueue_style(
+            'ct-main',  // Preface always with 'ct-' to avoid name collisions.
+            self::$styles_uri . '/main.min.css',
+            [],
+            self::$theme_version
+        );
+
+        // We need these icons for the FloorPlans page (Rent Fetch plugin).
+        wp_enqueue_style( 'dashicons' );
+    }
+
+    /**
      * Enqueue WordPress scripts.
      */
     public function enqueue_wp_scripts()
     {
         wp_enqueue_script(
-            'ct-main',
-            self::$scripts_uri . '/main.min.js',
+            'ct-easy-responsive-tabs',
+            self::$scripts_uri . '/vendor/easy-responsive-tabs.js',
             ['jquery'],
             self::$theme_version,
             true  // Include in footer.
         );
 
-        // We need these icons for the FloorPlans page (Rent Fetch plugin).
-        wp_enqueue_style( 'dashicons' );
+        wp_enqueue_script(
+            'ct-jquery-scrolltofixed',
+            self::$scripts_uri . '/vendor/jquery-scrolltofixed-min.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
+
+        wp_enqueue_script(
+            'ct-jquery-magnific-popup',
+            self::$scripts_uri . '/vendor/jquery-magnific-popup.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
+
+        wp_enqueue_script(
+            'ct-expandable-list',
+            self::$scripts_uri . '/common/expandable-list.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
+
+        wp_enqueue_script(
+            'ct-neighborhood',
+            self::$scripts_uri . '/custom-post-types/neighborhood/neighborhood.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
+
+        // The below script is loaded when needed by /lib/show-neighborhood_with_map.php.
+        // wp_enqueue_script(
+        //     'ct-wp-google-map',
+        //     self::$scripts_uri . '/custom-post-types/neighborhood/wp-google-map.js',
+        //     ['jquery'],
+        //     self::$theme_version,
+        //     true  // Include in footer.
+        // );
     }
 
     /**

@@ -409,8 +409,9 @@
   </div>
 
 <script src="//maps.google.com/maps/api/js?v=quarterly&key=AIzaSyCMihcakBLTRiKnIpSckUGe3_spL_vftHE"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- This script is loaded by our build process.
-<script src="<?php echo \CT\Setup::$theme_uri;?>/assets/js/custom-post-types/neighborhood/wp-google-map.js"></script>
--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+
+<script src="<?php echo \CT\Setup::$theme_uri; ?>/assets/js/custom-post-types/neighborhood/wp-google-map.js"></script>
