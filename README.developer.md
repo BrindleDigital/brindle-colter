@@ -212,9 +212,36 @@ For more information
 * https://git-updater.com/knowledge-base/
 * https://git-updater.com/knowledge-base/general-usage/?seq_no=2
 
-## Advanced Custom Fields
+## Advanced Custom Fields Pro
 
-TBD: ACF json lock-down
+As mentioned, the Advanced Custom Field (ACF) Pro plugin is a required dependency. Something to
+note is that we hide the ACF 'WP Admin Menu > Custom Fields' menu option on non-development
+websites. Therefore, you won't see this option on client sites.
+
+With this theme, ACF field Group data is saved external to the database in files in our
+/acf-json folder. In this way, we can change these field groups in development and keep
+the acf-json files in Git.
+
+When clients update the theme, these acf-json files travel with the theme and the client
+gets any new changes to the field groups that were made. We don't want to edit these acf-json
+files (by saving ACF Field Groups) outside of our development environment.
+
+We do this by commparing our site url with a top-level domain ending in one of the following:
+
+* .example
+* .home
+* .lan
+* .local
+* .localhost
+* .test
+
+If there's a match, we consider ourselves in development mode and enable the 'Custom Fields'
+menu option in the WPAdmin backend.
+
+Again, we don't want clients changing the ACF field groups that should only be edited in our
+development environment! Be warned!
+
+example|home|lan|local|localhost|test
 
 ## Developer Notes
 

@@ -59,7 +59,7 @@ class Setup {
     function __construct()
     {
         $this->setup_global_constants();
-        $this->setup_hooks();
+        $this->setup_actions();
         $this->setup_filters();
     }
 
@@ -83,7 +83,7 @@ class Setup {
     /**
      * Enqueue scripts and stylesheets.
      */
-    private function setup_hooks()
+    private function setup_actions()
     {
         // Insert inline styles
         add_action( 'admin_enqueue_scripts', [$this, 'enqueue_inline_styles'], 0 ); // Zero loads us early!
@@ -256,6 +256,21 @@ class Setup {
 
             return $classes;
         } );
+
+        /**
+         * Hide the ACF 'WP Admin Menu > Custom Fields' menu option on non-development websites.
+         * ACF field Group data is saved external to the database in files in our
+         * /acf-json folder. In this way, we can change these field groups in
+         * development and keep the acf-json files in Git. When clients update
+         * the theme, these acf-json files travel with the theme and the client
+         * gets any new changes to the field groups that were made.
+         *
+         * We don't want to edit these acf-json files (by saving ACF Field Groups)
+         * outside of our development environment. Again, we don't want clients
+         * changing the ACF field groups that should only be edited in our
+         * development environment! Be warned!
+         */
+        add_filter( 'acf/settings/show_admin', ['CT\Helpers', 'WeAreInDevelopment'] );
 
         // Create our category in the Gutenberg editor menu to store theme blocks.
         // The 'block_categories' filter was deprecated in WP 5.8.

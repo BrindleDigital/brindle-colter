@@ -68,6 +68,19 @@ class Helpers {
     }
 
     /**
+     * Returns true if we are operating in a local/development environment.
+     *
+     * We do this be testing the top-level domain of our site_url(). If the TLD is reserved,
+     * then we consider ourselves in a local development environment.
+     *
+     * See: https://en.wikipedia.org/wiki/Special-use_domain_name
+     */
+    public static function weAreInDevelopment()
+    {
+        return preg_match( '/\.(example|home|lan|local|localhost|test)$/i', site_url() ) === 1;
+    }
+
+    /**
      * Returns an array of files within the given directory (and its subdirectories)
      * that match the given regex.
      *
