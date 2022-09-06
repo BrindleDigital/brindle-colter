@@ -14,10 +14,13 @@ function ct_load_files( $files ) {
 }
 
 // Kick us off by loading our required theme files, in order.
-ct_load_files([
-    'lib/setup.php',
+ct_load_files( [
     'lib/helpers.php',
-    'lib/styles.php',
+    'lib/setup.php',
+    'lib/customizer/colors/acf.php',
+    'lib/customizer/colors/generate-press.php',
+    'lib/customizer/colors/neighborhood.php',
+    'lib/customizer/colors/wp.php',
     '/lib/custom-post-types/neighborhood/neighborhood.php',
     'acf/setup.php',
-]);
+] );

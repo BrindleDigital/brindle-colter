@@ -199,7 +199,7 @@ body .map__infobox-poi-link {
 // Button text
 body .map-a__cat-item,
 body .map-a__cat-link-column {
-    color: var(--contrast-2);
+    color: var(--ct-neighborhood-button-text-color);
     font-family: inherit;
 }
 
@@ -207,43 +207,43 @@ body .map-a__cat-link-column {
 body .neighborhood-b__poi,
 body .map-a__cat-link[data-selected="true"],
 body .map-a__cat-selected {
-    background-color: var(--contrast-2) !important;
-    color: var(--contrast-4);
+    background-color: var(--ct-neighborhood-button-background-color-active) !important;
+    color: var(--ct-neighborhood-button-text-color-active);
 
     &:hover {
-        background-color: var(--contrast-2);
-        color: var(--contrast-4);
+        background-color: var(--ct-neighborhood-button-background-color-active);
+        color: var(--ct-neighborhood-button-text-color-active);
     }
 }
 // Active button text
 body .map-a__cat-link[data-selected="true"] .map-a__cat-link-column,
 body .map-a__cat-link:hover:not(.map-a__cat-link--active) {
-    color: var(--base);
+    color: var(--ct-neighborhood-button-text-color-active);
 }
 
 // Button background
 body .map-a__cat-item {
-    background-color: var(--base);
+    background-color: var(--ct-neighborhood-button-background-color);
 }
 
 // Button separator lines
 body .map-a__cat-link::before {
-    background-color: var(--contrast-2);
+    background-color: var(--ct-neighborhood-button-separator-color);
 }
 
 // Address header
 body .tab-grid h4,
 body.map__infobox-poi-address-header {
-    color: var(--base);
+    color: var(--ct-neighborhood-address-header-color);
 }
 
 // Address
 body .neighborhood-b__poi-category-item-title,
 body .neighborhood-b__poi-category-item-title {
-    color: var(--base);
+    color: var(--ct-neighborhood-address-text-color);
 }
 
 // Horizontal address separator lines
 body .neighborhood-b__poi-category-list-item {
-    border-color: var(--base);
+    border-color: var(--ct-neighborhood-address-separator-color);
 }

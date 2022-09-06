@@ -26,6 +26,12 @@ class Helpers {
         'desktop-xlarge'  => '90em',  // 1440px
     ];
 
+    // Cache the settings fetched by get_generate_settings().
+    private static $generate_settings = null;
+
+    // Cache the settings fetched by get_generate_settings_colors().
+    private static $generate_settings_colors = null;
+
     /**
      * Kick us off
      */
@@ -43,7 +49,7 @@ class Helpers {
         echo '<pre>'; print_r( $obj ); echo '</pre>';
 
         if ( $do_die ) {
-        die('Dying here from data dump.');
+            die('Dying here from data dump.');
         }
     }
 
@@ -57,7 +63,7 @@ class Helpers {
         error_log( print_r( $obj, true ) );
 
         if ( $do_die ) {
-        die('Dying here from data dump.');
+            die('Dying here from data dump.');
         }
     }
 
@@ -102,6 +108,90 @@ class Helpers {
         $label = ucwords( $label );
 
         return $label;
+    }
+
+    /**
+     * Returns an array provided by GeneratePress that contains all of the styling
+     * the user may change in the WP Admin > Appearance > Customize menus.
+     * Example:
+     *
+     *  $generate_settings = [
+     *    [global_colors] => [
+     *       ["name" => "contrast", "slug" => "contrast", "color" => "#000000"],
+     *       ...
+     *    ]
+     *    ...
+     *  ]
+     *
+     * @return array
+     */
+    public static function get_generate_settings() {
+        if ( ! empty( self::$generate_settings ) ) {
+            return self::$generate_settings;
+        }
+        else {
+            if ( ! function_exists( 'generate_get_defaults' ) ) {
+                return [];
+            }
+
+            // Fetch the style settings from GeneratePress.
+            self::$generate_settings  = wp_parse_args(
+                get_option( 'generate_settings', [] ),
+                generate_get_defaults()
+            );
+        }
+
+        return self::$generate_settings;
+    }
+
+    /**
+     * Returns the array of colors extracted from the given $generate_settings array.
+     * (See get_generate_settings() above.)
+     *
+     * These colors represent what the user has set in the
+     * WP Admin > Appearance > Customize > Colors menu. The purpose of this is to
+     * provide an easy lookup table of these colors.
+     *
+     * Given:
+     *  $generate_settings = [
+     *    [global_colors] => [
+     *       ["name" => "contrast", "slug" => "contrast", "color" => "#000000"],
+     *       ...
+     *    ]
+     *    ...
+     *  ]
+     *
+     * Returns:
+     *  [
+     *     "contrast" => ["name" => "contrast", "slug" => "contrast", "color" => "#000000"],
+     *     "accent"   => ["name" => "accent",   "slug" => "accent", "color" => "#ffff00"],
+     *     ...
+     *  ]
+     *
+     * @param  array  $generate_settings  Array returned from get_generate_settings()
+     * @return array
+     */
+    public static function get_generate_settings_colors( $generate_settings )
+    {
+        if ( ! empty( self::$generate_settings_colors ) ) {
+            return self::$generate_settings_colors;
+        }
+        else {
+            $color_map = [];
+            $colors = $generate_settings['global_colors'] ?? [];
+
+            foreach ( $colors as $color ) {
+                $slug = $color['slug'] ?? null;
+
+                if ( ! empty( $slug ) ) {
+                    $color_map[$slug] = $color;
+                }
+            }
+        }
+
+        self::$generate_settings_colors = $color_map;
+
+        return $color_map;
     }
 }
 

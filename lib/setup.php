@@ -7,7 +7,13 @@
  *   This call is at the end of this file.
  */
 
+
 namespace CT; // Child Theme
+
+use CT\Customizer\Colors\ACF;
+use CT\Customizer\Colors\Generate_Press;
+use CT\Customizer\Colors\Neighborhood;
+use CT\Customizer\Colors\WP;
 
 class Setup {
     // Directory path to theme folder
@@ -53,7 +59,7 @@ class Setup {
     function __construct()
     {
         $this->setup_global_constants();
-        $this->enqueue_assets();
+        $this->setup_hooks();
         $this->setup_filters();
     }
 
@@ -77,8 +83,15 @@ class Setup {
     /**
      * Enqueue scripts and stylesheets.
      */
-    private function enqueue_assets()
+    private function setup_hooks()
     {
+        // Insert inline styles
+        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_inline_styles'], 0 ); // Zero loads us early!
+        add_action( 'wp_enqueue_scripts',    [$this, 'enqueue_inline_styles'], 0 );
+
+        // Insert inline scripts
+        add_action( 'admin_enqueue_scripts', [$this, 'enqueue_inline_scripts'], 10, 0 );
+
         // Enqueue styles and scripts for the frontend.
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_styles'], 50, 0 ); // 50: We want to be near last.
         add_action( 'wp_enqueue_scripts', [$this, 'enqueue_wp_scripts'], 50, 0 );
@@ -86,6 +99,46 @@ class Setup {
         // Enqueue styles and scripts for the backend.
         add_action( 'admin_enqueue_scripts', [$this, 'enqueue_admin_wp_styles'], 50, 0 );
         add_action( 'enqueue_block_editor_assets', [$this, 'enqueue_block_editor_assets'], 10, 0 );
+
+        // Take all of the colors that GeneratePress provides in the
+        // WP Admin > Appearance > Customize > Colors panel and set the WP Gutenberg
+        // color picker with the same color palette.
+        add_action( 'customize_controls_print_footer_scripts', function() {
+            echo '<script>' . WP::get_inline_script() . '</script>';
+        } );
+    }
+
+    /**
+     * Enqueue inline styles.
+     */
+    public function enqueue_inline_styles()
+    {
+        // Take all of the colors that GeneratePress provides in the
+        // WP Admin > Appearance > Customize > Colors panel, create CSS variables from them,
+        // and insert them in body{} selector at the top of our page.
+        wp_register_style( 'ct-generatepress-variables', false );
+        wp_enqueue_style( 'ct-generatepress-variables' );
+        wp_add_inline_style( 'ct-generatepress-variables', Generate_Press::get_inline_css() );
+
+        // Take all of the colors that we set in the WP Admin > Appearance > Customize > Colors panel
+        // for the Neighborhood section. Create CSS variables from them and insert them in body{}
+        // selector at the top of our page.
+        wp_register_style( 'ct-neighborhood-variables', false );
+        wp_enqueue_style( 'ct-neighborhood-variables' );
+        wp_add_inline_style( 'ct-neighborhood-variables', Neighborhood::get_inline_css() );
+    }
+
+    /**
+     * Enqueue inline scripts.
+     */
+    public function enqueue_inline_scripts()
+    {
+        // Take all of the colors that GeneratePress provides in the
+        // WP Admin > Appearance > Customize > Colors panel and set the ACF
+        // color picker with the same color palette.
+        wp_register_script( 'ct-acf-color-picker', false );
+        wp_enqueue_script( 'ct-acf-color-picker' );
+        wp_add_inline_script( 'ct-acf-color-picker', ACF::get_inline_script() );
     }
 
     /**
