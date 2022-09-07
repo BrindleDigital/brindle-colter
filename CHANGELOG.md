@@ -1,3 +1,8 @@
+#### 1.0.5 / 2022-09-07
+
+* Styled main navigation slideout menu.
+* Tweaked floorplan tab styling.
+
 #### 1.0.4 / 2022-09-06
 
 * Add filter to hide ACF Custom Fields menu option in WPAdmin backend.

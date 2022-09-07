@@ -7,13 +7,17 @@
 
     .wp-block-ub-tabbed-content {
         position:relative;
-        top: -5.5rem;
+        top: -5rem;
         margin: 0;
     }
 
     .wp-block-ub-tabbed-content-tab-title-wrap {
         border-radius: 0;
         border: none;
+
+        &:not(.active) {
+            background: transparent !important;
+        }
     }
 
     .wp-block-ub-tabbed-content-tab-title {
