@@ -2,9 +2,40 @@
  * Header/menu styles
  */
 
+// Let's define our menu icon in one place so we can use it twice below.
+// We're replacing the dropdown hamburger menu icon with our own.
+%ct-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.714rem;
+    height: 17.5px;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+    background-color: transparent !important;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        max-width: 30px;
+        height: 17.5px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-image: url(../images/icons/menu-icon.svg);
+    }
+
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
 .header-wrap {
     font-size: 1rem;
 
+    // Desktop navigation bar. Hidden on mobile.
     .main-navigation {
         #menu-main {
             display: flex;
@@ -16,10 +47,6 @@
                     padding: 1.2857rem 1.2rem;
                     line-height: 1.5;
                     font-weight: 700;
-
-                    // &:hover {
-                    //     background-color: var(--contrast-4) !important;
-                    // }
                 }
 
                 // Apply this style to a menu item in the WP Admin backend.
@@ -40,71 +67,60 @@
                         }
                     }
                 }
+            }
+        }
 
-                // Apply this style to a menu item in the WP Admin backend.
-                // This will convert the menu option to a drop-down icon.
-                &.ct-submenu-icon {
-                    & > a {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 5.714rem;
-                        height: 17.5px;
-                        padding: 0;
-                        margin: 0;
-                        line-height: 0;
-                        font-size: 0;
-                        background-color: transparent !important;
+        // Replace the dropdown hamburger menu icon with our own.
+        .slideout-toggle {
+            .pro-menu-bars {
+                display: none;
+            }
 
-                        &:before {
-                            content: "";
-                            display: block;
-                            width: 100%;
-                            max-width: 30px;
-                            height: 17.5px;
-                            background-position: 50% 50%;
-                            background-repeat: no-repeat;
-                            background-image: url(../images/icons/menu-icon.svg);
-                        }
-
-                        &:hover {
-                            background-color: transparent !important;
-                        }
-                    }
-
-                    .dropdown-menu-toggle {
-                        display: none;
-                    }
-
-                    & > .sub-menu {
-                        right: 1rem;
-                        margin-top: 2rem;
-                        padding: 1rem;
-                        width: auto;
-                        min-width: 14.2857rem;
-                    }
-                }
+            & > a {
+                @extend %ct-menu-icon;
             }
         }
     }
 
-    #mobile-header {
-        font-size: 1rem;
+    // Mobile toggle menu
+    #mobile-header > .inside-navigation {
+        align-items: stretch;
 
-        #mobile-menu {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
+        svg {
+            display: none;
+        }
 
-            > .menu {
-                width: 100%;
-            }
-
-            .sub-menu {
-                padding: 1rem;
+        // Replace the dropdown hamburger menu icon with our own.
+        .menu-toggle {
+            .icon-menu-bars {
+                @extend %ct-menu-icon;
+                width: 1.714rem;
             }
         }
     }
+}
+
+// Slideout menu layout.
+#generate-slideout-menu {
+    .main-nav {
+        margin: 1rem 0 1rem;
+    }
+
+    .slideout-widget {
+        margin: 1rem 0 2rem;
+        padding: 0 1.428rem;
+    }
+
+    .menu-item {
+        a {
+            padding: 0.5rem 1.428rem;
+        }
+    }
+}
+
+// Let's keep the slideout overlay in place, but make it invisible.
+.slideout-overlay {
+    background-color: transparent !important;
 }
 
 /*
@@ -126,13 +142,6 @@ body:not(.home) {
                     padding-top: 2rem !important;
                     padding-bottom: 2rem !important;
                 }
-            }
-        }
-
-        &.ct-menu-button {
-            > a,
-            > a:hover {
-                    padding: 2rem 0;
             }
         }
     }
