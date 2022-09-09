@@ -63,7 +63,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": 2,
+                    "default_value": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "rem",
@@ -368,5 +368,5 @@
     "active": true,
     "description": "Hero block suitable for the home page.",
     "show_in_rest": 0,
-    "modified": 1662037875
+    "modified": 1662732169
 }

@@ -1,3 +1,7 @@
+#### 1.0.6 / 2022-09-09
+
+* Set default title position for secondary Hero block.
+
 #### 1.0.5 / 2022-09-07
 
 * Styled main navigation slideout menu.
