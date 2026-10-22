@@ -125,7 +125,7 @@ class Setup {
         // selector at the top of our page.
         wp_register_style( 'ct-neighborhood-variables', false );
         wp_enqueue_style( 'ct-neighborhood-variables' );
-        wp_add_inline_style( 'ct-neighborhood-variables', Neighborhood::get_inline_css() );
+        //wp_add_inline_style( 'ct-neighborhood-variables', Neighborhood::get_inline_css() );
     }
 
     /**
@@ -202,6 +202,14 @@ class Setup {
         wp_enqueue_script(
             'ct-expandable-list',
             self::$scripts_uri . '/common/expandable-list.js',
+            ['jquery'],
+            self::$theme_version,
+            true  // Include in footer.
+        );
+
+        wp_enqueue_script(
+            'ct-custom',
+            self::$scripts_uri . '/common/custom.js',
             ['jquery'],
             self::$theme_version,
             true  // Include in footer.

@@ -5,17 +5,18 @@
 
 namespace CT;
 
-Class ACFSetup
+class ACFSetup
 {
-    function __construct()
+    public function __construct()
     {
         // Load all required ACF block and supporting files.
         $this->include_files();
 
         // Register with ACF the path to our acf-json files.
-        add_filter( 'acf/settings/load_json', [$this, 'acf_register_json_files'], 10, 1 );
+        add_filter('acf/settings/load_json', [$this, 'acf_register_json_files'], 10, 1);
 
-        $this->add_acf_options_page();
+        // Add options page at the correct ACF hook timing
+        add_action('acf/init', [$this, 'add_acf_options_page']);
     }
 
     /**
@@ -26,10 +27,13 @@ Class ACFSetup
         // ACF helper methods.
         require_once Setup::$theme_dir . '/acf/helpers.php';
 
-        // All ACF block files. Load them dynamically so we don't have to manually list them.
-        $block_files = Helpers::recursive_file_search( Setup::$theme_dir . '/acf/blocks', '/.+\.php$/i' );
+        // All ACF block files (auto-load).
+        $block_files = Helpers::recursive_file_search(
+            Setup::$theme_dir . '/acf/blocks',
+            '/.+\.php$/i'
+        );
 
-        foreach ( $block_files as $file ) {
+        foreach ($block_files as $file) {
             require_once $file;
         }
     }
@@ -37,23 +41,29 @@ Class ACFSetup
     /**
      * Register with ACF the path to our acf-json files.
      *
-     * @param  array $paths   List of paths ACF uses to load acf-json files.
+     * @param array $paths
      * @return array
      */
-    public function acf_register_json_files( $paths )
+    public function acf_register_json_files($paths)
     {
         $paths[] = Setup::$theme_dir . '/acf-json';
         return $paths;
     }
 
     /**
-     * Add our ACF options page. You'll now find a 'Menu > Options' page.
+     * Add ACF options page.
      */
-    public function add_acf_options_page() {
-        if ( function_exists( 'acf_add_options_page' ) ) {
+    public function add_acf_options_page()
+    {
+        if (function_exists('acf_add_options_page')) {
             acf_add_options_page();
         }
     }
 }
 
-new ACFSetup();
+/**
+ * Initialize ACFSetup at the correct time
+ */
+add_action('after_setup_theme', function () {
+    new \CT\ACFSetup();
+});

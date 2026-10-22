@@ -12,7 +12,7 @@ class Neighborhood {
      */
     function __construct()
     {
-        add_action( 'init', [$this, 'register_cpt'], 10, 0 );
+        //add_action( 'init', [$this, 'register_cpt'], 10, 0 );
         add_action( 'init', [$this, 'register_shortcodes'], 10, 0 );
     }
 

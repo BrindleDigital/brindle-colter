@@ -1,3 +1,6 @@
+#### 1.0.7 / 2026-10-22
+
+* Re styling the theme
 #### 1.0.6 / 2022-09-09
 
 * Set default title position for secondary Hero block.

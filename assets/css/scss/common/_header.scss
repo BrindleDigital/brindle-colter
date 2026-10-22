@@ -134,16 +134,7 @@ body:not(.home) {
         .inside-header {
             padding-top: 0;
             padding-bottom: 0;
-        }
-
-        #menu-main {
-            & > .menu-item {
-                & > a {
-                    padding-top: 2rem !important;
-                    padding-bottom: 2rem !important;
-                }
-            }
-        }
+        }        
     }
 }
 

@@ -89,7 +89,7 @@ class Generate_Press {
             $variable_name  = str_replace('_', '-', $name );
 
             // Add out property to our array.
-            $css[] = "--ct-{$variable_name}: ${variable_color}";
+            $css[] = "--ct-{$variable_name}: {$variable_color}";
         }
 
         return "body {" . join( ';', $css ) . "}";
