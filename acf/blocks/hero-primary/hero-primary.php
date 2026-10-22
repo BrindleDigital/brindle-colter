@@ -147,6 +147,9 @@ class PrimaryHeroBlock
         $content_bottom_padding_desktop = is_numeric( get_field('content_bottom_padding_desktop' ) )
             ? get_field( 'content_bottom_padding_desktop' ) : 0;
 
+        /*Sub Heading*/
+        $sub_heading = is_string( get_field( 'sub_heading' ) ) ? get_field( 'sub_heading' ) : '';
+
         /*
          * Image layout
          */
@@ -283,9 +286,7 @@ class PrimaryHeroBlock
 
                 <div class="ct-pattern-container"></div>
 
-                <div class="ct-arrow-container"><img
-                    class="ct-arrow"
-                    src="<?php echo self::$images_url . '/graphics/arrow.png'; ?>;" /></div>
+                <div class="ct-arrow-container"><img alt="" class="ct-arrow" src="<?php echo self::$images_url . '/graphics/arrow.png'; ?>" /></div>
 
                 <div class="ct-content-container">
                     <div class="ct-content">
@@ -325,6 +326,36 @@ class PrimaryHeroBlock
                                 allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_inner_blocks)) ?>"
                                 template="<?php echo esc_attr(wp_json_encode($template)) ?>"
                                 templateLock="all" />
+							<?php if($sub_heading !=''){?>
+                                    <div class="ct-sub-heading-single">
+										<p class="has-text-align-left subheading has-accent-2-color has-text-color" style="text-transform:uppercase"><strong><?php echo $sub_heading;?></strong></p>
+                                    </div>
+                                <?php }?>
+							<div class="wp-block-buttons  is-layout-flex wp-block-buttons-is-layout-flex">
+                                <?php
+                                $button = get_field( 'button_full' );
+                                ?>
+                                    <?php if (isset($button['url']) and isset($button['title'])) { ?>
+                                        <div class="wp-block-buttons">
+                                                <div class="wp-block-button">
+                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>  class="wp-block-button__link wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
+                                                </div>                                    
+                                        </div>
+                                    <?php }?>
+                                    <?php 
+                                    $button = get_field( 'button_border' );
+                                    
+                                    if (isset($button['url']) and isset($button['title'])) { ?>
+                                        <div class="wp-block-buttons">
+                                                <div class="wp-block-button is-style-outline is-style-outline--1">
+
+                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>  class="wp-block-button__link has-contrast-color has-text-color has-background wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
+                                                    
+                                                </div>                                    
+                                        </div> 
+                                    <?php }?>
+                            </div> 
+							
                         </div>
                     </div>
                 </div>

@@ -54,8 +54,8 @@
 
         @include respond($tablet) {
             display: block;
-            width: 12.60%;
-            flex-basis: 12.60%;
+            /*width: 12.60%;
+            flex-basis: 12.60%;*/
             height: 25rem;
             background-color: #eaeaea;
         }
@@ -68,8 +68,10 @@
 
         @include respond($tablet) {
             display: block;
-            width: 51.40%;
-            flex-basis: 51.40%;
+            /*width: 51.40%;
+            flex-basis: 51.40%;*/
+			width: 54%;
+            flex-basis: 54%;
             height: 25rem;
         }
     }

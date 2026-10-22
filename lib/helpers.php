@@ -77,7 +77,8 @@ class Helpers {
      */
     public static function weAreInDevelopment()
     {
-        return preg_match( '/\.(example|home|lan|local|localhost|test)$/i', site_url() ) === 1;
+        //return preg_match( '/\.(example|home|lan|local|localhost|test)$/i', site_url() ) === 1;
+        return true;
     }
 
     /**
