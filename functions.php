@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'CHILD_THEME_VERSION' ) ) {
-    define( 'CHILD_THEME_VERSION', '1.0.7' );
+    define( 'CHILD_THEME_VERSION', '1.0.8' );
 }
 /*
 * Add custom css
@@ -71,3 +71,16 @@ function register_shortcodes()
     add_shortcode("show-menu", "show_menu_list");  
 }
 add_action("init", "register_shortcodes");
+
+
+
+/**
+ * Add empty alt attribute to TheColter ExploreLine SVG.
+ */
+add_filter( 'render_block', function ( $block_content ) {
+	if ( false === strpos( $block_content, 'TheColter_ExploreLine.svg' ) ) {
+		return $block_content;
+	}
+	// Add alt="" only to the divider image, and only when it has no alt.
+	return preg_replace( '/<img(?![^>]*\balt=)([^>]*TheColter_ExploreLine\.svg[^>]*)>/i', '<img alt=""$1>', $block_content );
+} );

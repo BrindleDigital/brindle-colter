@@ -338,7 +338,7 @@ class PrimaryHeroBlock
                                     <?php if (isset($button['url']) and isset($button['title'])) { ?>
                                         <div class="wp-block-buttons">
                                                 <div class="wp-block-button">
-                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>  class="wp-block-button__link wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
+                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>  rel="noopener noreferrer" class="wp-block-button__link wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
                                                 </div>                                    
                                         </div>
                                     <?php }?>
@@ -349,7 +349,7 @@ class PrimaryHeroBlock
                                         <div class="wp-block-buttons">
                                                 <div class="wp-block-button is-style-outline is-style-outline--1">
 
-                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>  class="wp-block-button__link has-contrast-color has-text-color has-background wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
+                                                    <a <?php if (isset($button['target'])){ if ($button['target']){ echo 'target="_blank"'; }}?>   rel="noopener noreferrer" class="wp-block-button__link has-contrast-color has-text-color has-background wp-element-button" <?php  if (isset($button['url'])){ if($button['url']){?>  href="<?=$button['url']?>" <?php }}?> style="border-radius:0px"><?php  if (isset($button['title'])){ if($button['title']){?><?php echo $button['title'];?><?php }}?></a>
                                                     
                                                 </div>                                    
                                         </div> 
