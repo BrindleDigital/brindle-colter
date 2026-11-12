@@ -1,3 +1,6 @@
+#### 1.0.8 / 2026-11-12
+
+* Minor style fixing
 #### 1.0.7 / 2026-10-22
 
 * Re styling the theme
